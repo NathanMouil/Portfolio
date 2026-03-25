@@ -1,458 +1,233 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Portfolio — BUT R&T</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --bg: #080c10;
-    --surface: #0d1318;
-    --surface2: #121b22;
-    --border: #1e2e3a;
-    --accent: #00e5ff;
-    --accent2: #0072ff;
-    --text: #d8eaf5;
-    --muted: #5a7a90;
-    --danger: #ff4c6a;
-    --green: #00ffa3;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – BUT R&T</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --c1: #7c3aed;
+      --c2: #06b6d4;
+      --c3: #f59e0b;
+      --c4: #ec4899;
+      --bg: #0a0a12;
+      --bg2: #111122;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(10,10,18,0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(90deg, var(--c1), var(--c2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .25s; }
+    .nav-links a:hover { color: var(--text); }
 
-  html { scroll-behavior: smooth; }
+    /* HERO */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 40%, rgba(124,58,237,.35) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 60%, rgba(6,182,212,.25) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 10%, rgba(245,158,11,.15) 0%, transparent 50%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+    .hero-badge {
+      display: inline-block; padding: .35rem 1rem;
+      border: 1px solid rgba(124,58,237,.5); border-radius: 999px;
+      font-size: .8rem; color: var(--c2); letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 1.8rem; background: rgba(124,58,237,.1);
+    }
+    .hero-title {
+      font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800; line-height: 1.05; margin-bottom: 1.5rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 50%, var(--c3) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub { color: var(--muted); font-size: 1.15rem; max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .8rem 1.8rem; border-radius: 12px;
+      font-family: 'Syne', sans-serif; font-weight: 600; font-size: .95rem;
+      text-decoration: none; transition: transform .2s, box-shadow .2s; cursor: pointer; border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--c1), var(--c2)); color: #fff; box-shadow: 0 4px 24px rgba(124,58,237,.4); }
+    .btn-primary:hover { box-shadow: 0 8px 32px rgba(124,58,237,.6); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+    .btn-outline:hover { border-color: var(--c2); color: var(--c2); }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .15em; color: var(--c2); font-weight: 600; margin-bottom: .6rem; }
+    .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+    .section-desc { color: var(--muted); max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
 
-  /* ── NOISE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.35;
-  }
+    /* COMPETENCES */
+    #competences { background: var(--bg2); }
+    .year-tabs { display: flex; gap: .75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .year-tab {
+      padding: .55rem 1.4rem; border-radius: 10px; cursor: pointer;
+      font-family: 'Syne', sans-serif; font-weight: 600; font-size: .9rem;
+      border: 1px solid var(--border); color: var(--muted);
+      background: var(--surface); transition: all .25s;
+    }
+    .year-tab.active {
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      border-color: transparent; color: #fff; box-shadow: 0 4px 20px rgba(124,58,237,.4);
+    }
+    .year-panel { display: none; }
+    .year-panel.active { display: block; }
+    .competences-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .comp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative; overflow: hidden;
+    }
+    .comp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; }
+    .comp-card.adm::before  { background: linear-gradient(90deg, var(--c1), var(--c4)); }
+    .comp-card.conn::before { background: linear-gradient(90deg, var(--c2), var(--c1)); }
+    .comp-card.prog::before { background: linear-gradient(90deg, var(--c3), var(--c2)); }
+    .comp-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.4); border-color: rgba(255,255,255,.15); }
+    .comp-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.2rem; }
+    .adm  .comp-icon { background: rgba(124,58,237,.2); }
+    .conn .comp-icon { background: rgba(6,182,212,.2); }
+    .prog .comp-icon { background: rgba(245,158,11,.2); }
+    .comp-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: .5rem; }
+    .adm  .comp-title { color: var(--c4); }
+    .conn .comp-title { color: var(--c2); }
+    .prog .comp-title { color: var(--c3); }
+    .comp-desc { color: var(--muted); font-size: .92rem; line-height: 1.65; margin-bottom: 1.2rem; }
+    .comp-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag { padding: .25rem .75rem; border-radius: 999px; font-size: .78rem; font-weight: 500; }
+    .adm  .tag { background: rgba(124,58,237,.15); color: var(--c4); border: 1px solid rgba(124,58,237,.3); }
+    .conn .tag { background: rgba(6,182,212,.15); color: var(--c2); border: 1px solid rgba(6,182,212,.3); }
+    .prog .tag { background: rgba(245,158,11,.15); color: var(--c3); border: 1px solid rgba(245,158,11,.3); }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 4rem;
-    background: rgba(8,12,16,0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
+    .year2-intro {
+      background: linear-gradient(135deg, rgba(124,58,237,.1), rgba(6,182,212,.1));
+      border: 1px solid rgba(124,58,237,.3); border-radius: 16px;
+      padding: 1.5rem 2rem; margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .year2-intro .icon { font-size: 2rem; }
+    .year2-intro p { color: var(--muted); font-size: .95rem; line-height: 1.6; }
+    .year2-intro strong { color: var(--text); }
 
-  .nav-logo {
-    font-family: 'Space Mono', monospace;
-    font-size: .85rem;
-    color: var(--accent);
-    letter-spacing: .2em;
-    text-transform: uppercase;
-  }
+    /* PROJETS */
+    #projets { background: var(--bg); }
+    .projets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .projet-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; transition: transform .3s, box-shadow .3s;
+    }
+    .projet-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .projet-header { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+    .ph-1 { background: linear-gradient(135deg, rgba(124,58,237,.4), rgba(236,72,153,.3)); }
+    .ph-2 { background: linear-gradient(135deg, rgba(6,182,212,.4), rgba(124,58,237,.3)); }
+    .ph-3 { background: linear-gradient(135deg, rgba(245,158,11,.4), rgba(6,182,212,.3)); }
+    .projet-body { padding: 1.5rem; }
+    .projet-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: .5rem; }
+    .projet-desc { color: var(--muted); font-size: .9rem; line-height: 1.6; margin-bottom: 1.2rem; }
+    .projet-footer { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-top: 1px solid var(--border); }
+    .projet-tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .projet-tag { padding: .2rem .65rem; border-radius: 999px; font-size: .75rem; background: rgba(255,255,255,.07); color: var(--muted); }
+    .btn-sm {
+      padding: .45rem 1.1rem; border-radius: 8px; font-size: .82rem;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      color: #fff; text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 600; transition: opacity .2s;
+    }
+    .btn-sm:hover { opacity: .85; }
+    .btn-sm.disabled { background: var(--surface); color: var(--muted); border: 1px solid var(--border); pointer-events: none; }
 
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
+    /* CV */
+    #cv { background: var(--bg2); text-align: center; }
+    .cv-card {
+      max-width: 600px; margin: 0 auto;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 24px; padding: 3rem 2.5rem; position: relative; overflow: hidden;
+    }
+    .cv-card::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(124,58,237,.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 50%, rgba(6,182,212,.1) 0%, transparent 60%);
+    }
+    .cv-card > * { position: relative; z-index: 1; }
+    .cv-icon { font-size: 3.5rem; margin-bottom: 1.2rem; display: block; }
+    .cv-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.5rem; margin-bottom: .75rem; }
+    .cv-card p { color: var(--muted); margin-bottom: 2rem; line-height: 1.6; }
+    .cv-input-row { display: flex; gap: .75rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .cv-input {
+      flex: 1; min-width: 240px; padding: .75rem 1.2rem;
+      background: rgba(255,255,255,.06); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text); font-size: .9rem;
+      font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .2s;
+    }
+    .cv-input:focus { border-color: var(--c1); }
+    .cv-input::placeholder { color: var(--muted); }
 
-  .nav-links a {
-    text-decoration: none;
-    color: var(--muted);
-    font-size: .85rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    transition: color .2s;
-  }
+    /* FOOTER */
+    footer { background: var(--bg); border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: .88rem; }
+    footer span { color: var(--c2); }
 
-  .nav-links a:hover { color: var(--accent); }
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--c1); border-radius: 3px; }
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 4rem 4rem;
-    position: relative;
-  }
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp .7s ease both; }
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .22s; }
+    .delay-3 { animation-delay: .34s; }
+    .delay-4 { animation-delay: .46s; }
 
-  .grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,255,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,255,.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-  }
-
-  .glow-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    opacity: .18;
-  }
-  .blob1 { width: 500px; height: 500px; background: var(--accent2); top: -100px; right: -100px; }
-  .blob2 { width: 350px; height: 350px; background: var(--accent); bottom: 50px; left: 10%; }
-
-  .hero-tag {
-    font-family: 'Space Mono', monospace;
-    font-size: .75rem;
-    color: var(--accent);
-    letter-spacing: .3em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp .7s .2s forwards;
-  }
-
-  h1 {
-    font-size: clamp(3rem, 7vw, 6.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -.02em;
-    opacity: 0;
-    animation: fadeUp .7s .35s forwards;
-  }
-
-  h1 span { color: var(--accent); }
-
-  .hero-sub {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 520px;
-    opacity: 0;
-    animation: fadeUp .7s .5s forwards;
-  }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2.5rem;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp .7s .65s forwards;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .8rem 1.8rem;
-    border-radius: 4px;
-    font-family: 'Space Mono', monospace;
-    font-size: .8rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    transition: all .2s;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    font-weight: 700;
-  }
-  .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,229,255,.4); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-  }
-  .btn-outline:hover { background: rgba(0,229,255,.08); transform: translateY(-2px); }
-
-  /* ── SECTIONS ── */
-  section {
-    padding: 6rem 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem;
-    color: var(--accent);
-    letter-spacing: .3em;
-    text-transform: uppercase;
-    margin-bottom: .8rem;
-  }
-
-  h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -.01em;
-    margin-bottom: 3rem;
-    line-height: 1.1;
-  }
-
-  h2 em { color: var(--accent); font-style: normal; }
-
-  /* ── COMPÉTENCES ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform .25s, border-color .25s, box-shadow .25s;
-  }
-
-  .skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .3s;
-  }
-
-  .skill-card:hover { transform: translateY(-4px); border-color: rgba(0,229,255,.3); box-shadow: 0 8px 40px rgba(0,229,255,.08); }
-  .skill-card:hover::before { transform: scaleX(1); }
-
-  .skill-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .skill-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: .5rem;
-  }
-
-  .skill-card p {
-    font-size: .85rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  .skill-badge {
-    display: inline-block;
-    margin-top: .9rem;
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem;
-    padding: .25rem .7rem;
-    border-radius: 20px;
-    background: rgba(0,229,255,.1);
-    color: var(--accent);
-    border: 1px solid rgba(0,229,255,.2);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-
-  /* ── PROJETS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
-  }
-
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform .25s, box-shadow .25s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover { transform: translateY(-5px); box-shadow: 0 16px 60px rgba(0,229,255,.1); }
-
-  .project-header {
-    padding: 1.8rem 1.8rem 1rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface2);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .project-num {
-    font-family: 'Space Mono', monospace;
-    font-size: .7rem;
-    color: var(--muted);
-    letter-spacing: .2em;
-  }
-
-  .project-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-
-  .project-body {
-    padding: 1.5rem 1.8rem;
-    flex: 1;
-  }
-
-  .project-body p {
-    font-size: .9rem;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1.2rem;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-  }
-
-  .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem;
-    padding: .2rem .6rem;
-    border-radius: 3px;
-    background: rgba(0,114,255,.15);
-    color: #5ab0ff;
-    border: 1px solid rgba(0,114,255,.2);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-  }
-
-  .project-footer {
-    padding: 1.2rem 1.8rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 1rem;
-  }
-
-  .link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    font-family: 'Space Mono', monospace;
-    font-size: .72rem;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    transition: color .2s;
-  }
-  .link-btn:hover { color: #fff; }
-  .link-btn svg { width: 14px; height: 14px; }
-
-  /* ── CV ── */
-  #cv {
-    text-align: center;
-  }
-
-  .cv-box {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 4rem 5rem;
-    max-width: 540px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cv-box::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(135deg, var(--accent2), var(--accent), transparent 60%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .cv-icon {
-    font-size: 3.5rem;
-    filter: drop-shadow(0 0 20px rgba(0,229,255,.4));
-  }
-
-  .cv-box h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-  }
-
-  .cv-box p {
-    color: var(--muted);
-    font-size: .9rem;
-    margin-top: -.5rem;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 2.5rem 4rem;
-    font-family: 'Space Mono', monospace;
-    font-size: .72rem;
-    color: var(--muted);
-    letter-spacing: .1em;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 0 auto;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; }
-    #hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
-    h1 { font-size: 2.8rem; }
-    .cv-box { padding: 2.5rem 2rem; }
-  }
-</style>
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 4rem 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">// PORTFOLIO</span>
+  <div class="nav-logo">R&T Portfolio</div>
   <ul class="nav-links">
+    <li><a href="#hero">Accueil</a></li>
     <li><a href="#competences">Compétences</a></li>
     <li><a href="#projets">Projets</a></li>
     <li><a href="#cv">CV</a></li>
@@ -461,221 +236,294 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="grid-bg"></div>
-  <div class="glow-blob blob1"></div>
-  <div class="glow-blob blob2"></div>
-
-  <p class="hero-tag">BUT Réseaux &amp; Télécommunications — 2ème année</p>
-  <h1>Nathan<br/><span>MOUILLÉ</span></h1>
-  <p class="hero-sub">Étudiant passionné par les réseaux, la cybersécurité et les télécommunications. À la recherche d'opportunités pour mettre en pratique mes compétences.</p>
-  <div class="hero-ctas">
-    <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-    <a href="#cv" class="btn btn-outline">Télécharger mon CV</a>
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge fade-up">🎓 BUT Réseaux &amp; Télécommunications – 2ème année</div>
+    <h1 class="hero-title fade-up delay-1">
+      Bienvenue sur<br><span class="gradient-text">mon Portfolio</span>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Étudiant passionné par les réseaux, les télécoms et le développement.
+      Découvrez mes compétences, mes projets et mon parcours.
+    </p>
+    <div class="hero-ctas fade-up delay-3">
+      <a href="#projets" class="btn btn-primary">Voir mes projets →</a>
+      <a href="#cv" class="btn btn-outline">📄 Mon CV</a>
+    </div>
   </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- COMPÉTENCES -->
 <section id="competences">
-  <p class="section-label">// 01 — Savoir-faire</p>
-  <h2>Mes <em>compétences</em><br/>BUT R&amp;T</h2>
+  <div class="container">
+    <p class="section-label">Formation</p>
+    <h2 class="section-title">Mes Compétences BUT R&T</h2>
+    <p class="section-desc">
+      Le BUT Réseaux &amp; Télécoms s'articule autour de 3 compétences transversales : <strong>Administrer</strong>, <strong>Connecter</strong> et <strong>Programmer</strong>, approfondies chaque année.
+    </p>
 
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <div class="skill-icon">🌐</div>
-      <h3>Administrer les réseaux et l'Internet</h3>
-      <p>Configuration et gestion d'équipements réseau (routeurs, switchs), protocoles IP, VLAN, routage statique et dynamique (OSPF, RIP), supervision réseau.</p>
-      <span class="skill-badge">SAÉ R1.01 – R2.04</span>
+    <div class="year-tabs">
+      <button class="year-tab active" onclick="showYear(1)">📘 1ère Année</button>
+      <button class="year-tab" onclick="showYear(2)">🚀 2ème Année</button>
     </div>
 
-    <div class="skill-card">
-      <div class="skill-icon">🔗</div>
-      <h3>Connecter les entreprises et les usagers</h3>
-      <p>Mise en œuvre de solutions d'accès (xDSL, fibre, Wi-Fi), architecture LAN/WAN, déploiement et configuration de services réseau (DHCP, DNS, NAT).</p>
-      <span class="skill-badge">SAÉ R1.02 – R2.05</span>
+    <!-- ANNÉE 1 -->
+    <div class="year-panel active" id="year-1">
+      <div class="competences-grid">
+
+        <div class="comp-card adm">
+          <div class="comp-icon">🛡️</div>
+          <div class="comp-title">Administrer</div>
+          <p class="comp-desc">
+            Configurer et gérer des équipements réseau dans un environnement simple.
+            Mise en place des services de base (DHCP, DNS, VLAN) et maintenance d'infrastructures locales.
+          </p>
+          <div class="comp-tags">
+            <span class="tag">Cisco IOS</span>
+            <span class="tag">Linux</span>
+            <span class="tag">DHCP / DNS</span>
+            <span class="tag">VLAN</span>
+            <span class="tag">SSH</span>
+          </div>
+        </div>
+
+        <div class="comp-card conn">
+          <div class="comp-icon">🌐</div>
+          <div class="comp-title">Connecter</div>
+          <p class="comp-desc">
+            Comprendre et mettre en œuvre les protocoles de communication fondamentaux.
+            Câblage, modèle OSI, adressage IP, routage statique et bases des protocoles TCP/IP.
+          </p>
+          <div class="comp-tags">
+            <span class="tag">TCP/IP</span>
+            <span class="tag">IPv4 / IPv6</span>
+            <span class="tag">Routage statique</span>
+            <span class="tag">Fibre / Cuivre</span>
+            <span class="tag">Wireshark</span>
+          </div>
+        </div>
+
+        <div class="comp-card prog">
+          <div class="comp-icon">💻</div>
+          <div class="comp-title">Programmer</div>
+          <p class="comp-desc">
+            Développer des scripts et des petites applications pour automatiser des tâches réseau.
+            Introduction à la programmation et aux outils de développement.
+          </p>
+          <div class="comp-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Bash</span>
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">Git</span>
+            <span class="tag">Scripts réseau</span>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="skill-card">
-      <div class="skill-icon">🔒</div>
-      <h3>Sécuriser les réseaux et les données</h3>
-      <p>Politique de sécurité, firewalls, ACL, VPN (IPsec, SSL), détection d'intrusions, gestion des vulnérabilités et sensibilisation aux bonnes pratiques.</p>
-      <span class="skill-badge">SAÉ R1.03 – R2.06</span>
-    </div>
+    <!-- ANNÉE 2 -->
+    <div class="year-panel" id="year-2">
+      <div class="year2-intro">
+        <div class="icon">🚀</div>
+        <div>
+          <p>
+            <strong>En 2ème année</strong>, les trois compétences sont approfondies dans des contextes plus complexes :
+            environnements multi-sites, sécurité renforcée, automatisation avancée et projets transversaux en autonomie.
+          </p>
+        </div>
+      </div>
 
-    <div class="skill-card">
-      <div class="skill-icon">📡</div>
-      <h3>Déployer des services dans un réseau</h3>
-      <p>Installation de serveurs (Linux/Windows), virtualisation (VirtualBox, VMware), services applicatifs (HTTP, FTP, SSH, SMTP), conteneurisation Docker.</p>
-      <span class="skill-badge">SAÉ R1.04 – R2.07</span>
-    </div>
+      <div class="competences-grid">
 
-    <div class="skill-card">
-      <div class="skill-icon">📱</div>
-      <h3>Gérer les télécommunications</h3>
-      <p>Technologies de transmission, modulations, couche physique, propagation radio, normes cellulaires (4G/5G), ToIP et protocole SIP.</p>
-      <span class="skill-badge">SAÉ R1.05 – R2.08</span>
-    </div>
+        <div class="comp-card adm">
+          <div class="comp-icon">🔒</div>
+          <div class="comp-title">Administrer – Niveau 2</div>
+          <p class="comp-desc">
+            Gestion d'infrastructures complexes et multi-sites. Administration avancée de serveurs,
+            virtualisation, supervision réseau, haute disponibilité et introduction à la cybersécurité.
+          </p>
+          <div class="comp-tags">
+            <span class="tag">VPN / IPSec</span>
+            <span class="tag">Firewall</span>
+            <span class="tag">Proxmox / VMware</span>
+            <span class="tag">Nagios / Zabbix</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">OSPF / BGP</span>
+          </div>
+        </div>
 
-    <div class="skill-card">
-      <div class="skill-icon">💻</div>
-      <h3>Programmer les équipements réseau</h3>
-      <p>Scripts Shell/Python pour l'automatisation, initiation aux APIs REST, configuration automatisée via Ansible, outils de supervision (Nagios, Zabbix).</p>
-      <span class="skill-badge">SAÉ R1.06 – R2.09</span>
-    </div>
+        <div class="comp-card conn">
+          <div class="comp-icon">📡</div>
+          <div class="comp-title">Connecter – Niveau 2</div>
+          <p class="comp-desc">
+            Interconnexion de réseaux hétérogènes, technologies WAN, sans fil avancé (Wi-Fi, 4G/5G).
+            Qualité de service, ToIP, et découverte des architectures SDN et cloud networking.
+          </p>
+          <div class="comp-tags">
+            <span class="tag">MPLS / SD-WAN</span>
+            <span class="tag">Wi-Fi 802.11</span>
+            <span class="tag">QoS</span>
+            <span class="tag">VoIP / ToIP</span>
+            <span class="tag">5G</span>
+            <span class="tag">Cloud (AWS/Azure)</span>
+          </div>
+        </div>
 
+        <div class="comp-card prog">
+          <div class="comp-icon">⚙️</div>
+          <div class="comp-title">Programmer – Niveau 2</div>
+          <p class="comp-desc">
+            Automatisation d'infrastructure avec des outils professionnels, développement d'applications
+            réseau, APIs REST et initiation au DevOps. Gestion de projets et travail collaboratif.
+          </p>
+          <div class="comp-tags">
+            <span class="tag">Ansible</span>
+            <span class="tag">Python avancé</span>
+            <span class="tag">API REST</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Git / CI-CD</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- PROJETS -->
 <section id="projets">
-  <p class="section-label">// 02 — Réalisations</p>
-  <h2>Mes <em>projets</em></h2>
+  <div class="container">
+    <p class="section-label">Réalisations</p>
+    <h2 class="section-title">Mes Projets</h2>
+    <p class="section-desc">
+      Projets réalisés dans le cadre du BUT R&T ou en autonomie. Cliquez sur "Voir le projet" pour en savoir plus.
+    </p>
 
-  <div class="projects-grid">
+    <div class="projets-grid">
 
-    <!-- PROJET 1 -->
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">PROJ_01</span>
-        <h3>Infrastructure réseau d'entreprise</h3>
-      </div>
-      <div class="project-body">
-        <p>Conception et déploiement d'une infrastructure LAN/WAN simulée sous Cisco Packet Tracer. Mise en place du routage OSPF, VLANs, services DHCP et DNS.</p>
-        <div class="tags">
-          <span class="tag">Cisco</span>
-          <span class="tag">OSPF</span>
-          <span class="tag">VLAN</span>
-          <span class="tag">Packet Tracer</span>
+      <div class="projet-card">
+        <div class="projet-header ph-1">🏗️</div>
+        <div class="projet-body">
+          <h3 class="projet-title">Projet 1 – À compléter</h3>
+          <p class="projet-desc">Décrivez ici votre projet : contexte, objectif, technologies utilisées et résultats obtenus.</p>
+        </div>
+        <div class="projet-footer">
+          <div class="projet-tags">
+            <span class="projet-tag">Réseau</span>
+            <span class="projet-tag">Linux</span>
+          </div>
+          <a href="#" class="btn-sm disabled">Bientôt</a>
         </div>
       </div>
-      <div class="project-footer">
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Voir le projet
-        </a>
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
 
-    <!-- PROJET 2 -->
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">PROJ_02</span>
-        <h3>Serveur Linux & services réseau</h3>
-      </div>
-      <div class="project-body">
-        <p>Administration d'un serveur Debian : installation et configuration d'Apache, Bind9, Postfix et OpenSSH. Scripting Bash pour l'automatisation des tâches.</p>
-        <div class="tags">
-          <span class="tag">Linux</span>
-          <span class="tag">Bash</span>
-          <span class="tag">Apache</span>
-          <span class="tag">DNS</span>
+      <div class="projet-card">
+        <div class="projet-header ph-2">⚙️</div>
+        <div class="projet-body">
+          <h3 class="projet-title">Projet 2 – À compléter</h3>
+          <p class="projet-desc">Décrivez ici votre projet : contexte, objectif, technologies utilisées et résultats obtenus.</p>
+        </div>
+        <div class="projet-footer">
+          <div class="projet-tags">
+            <span class="projet-tag">Python</span>
+            <span class="projet-tag">Automatisation</span>
+          </div>
+          <a href="#" class="btn-sm disabled">Bientôt</a>
         </div>
       </div>
-      <div class="project-footer">
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Voir le projet
-        </a>
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
 
-    <!-- PROJET 3 -->
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">PROJ_03</span>
-        <h3>Audit de sécurité réseau</h3>
-      </div>
-      <div class="project-body">
-        <p>Analyse de vulnérabilités d'un réseau local simulé : scan Nmap, exploitation Metasploit dans un environnement légal, recommandations et rapport de sécurité.</p>
-        <div class="tags">
-          <span class="tag">Nmap</span>
-          <span class="tag">Wireshark</span>
-          <span class="tag">Cybersécurité</span>
-          <span class="tag">Kali</span>
+      <div class="projet-card">
+        <div class="projet-header ph-3">📡</div>
+        <div class="projet-body">
+          <h3 class="projet-title">Projet 3 – À compléter</h3>
+          <p class="projet-desc">Décrivez ici votre projet : contexte, objectif, technologies utilisées et résultats obtenus.</p>
+        </div>
+        <div class="projet-footer">
+          <div class="projet-tags">
+            <span class="projet-tag">Télécoms</span>
+            <span class="projet-tag">Cisco</span>
+          </div>
+          <a href="#" class="btn-sm disabled">Bientôt</a>
         </div>
       </div>
-      <div class="project-footer">
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Voir le projet
-        </a>
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
 
-    <!-- PROJET 4 -->
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-num">PROJ_04</span>
-        <h3>Supervision avec Zabbix</h3>
-      </div>
-      <div class="project-body">
-        <p>Déploiement d'une plateforme de supervision réseau Zabbix sur VM. Création de tableaux de bord, alertes automatiques et monitoring d'équipements via SNMP.</p>
-        <div class="tags">
-          <span class="tag">Zabbix</span>
-          <span class="tag">SNMP</span>
-          <span class="tag">Supervision</span>
-          <span class="tag">VMware</span>
-        </div>
-      </div>
-      <div class="project-footer">
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Voir le projet
-        </a>
-        <a href="#" class="link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-      </div>
     </div>
-
   </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- CV -->
 <section id="cv">
-  <p class="section-label">// 03 — Documents</p>
-  <h2>Mon <em>CV</em></h2>
-
-  <div class="cv-box">
-    <div class="cv-icon">📄</div>
-    <div>
-      <h3>Curriculum Vitæ</h3>
-      <p>Disponible en téléchargement au format PDF</p>
+  <div class="container">
+    <div class="cv-card">
+      <span class="cv-icon">📄</span>
+      <h3>Mon Curriculum Vitae</h3>
+      <p>
+        Retrouvez mon parcours complet, mes expériences et mes compétences dans mon CV.
+        Collez ci-dessous le lien vers votre CV (Google Drive, PDF en ligne, etc.).
+      </p>
+      <div class="cv-input-row">
+        <input
+          class="cv-input"
+          id="cv-link-input"
+          type="url"
+          placeholder="https://drive.google.com/... ou lien PDF"
+          oninput="updateCvBtn()"
+        />
+        <a id="cv-btn" href="#" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
+          Voir le CV →
+        </a>
+      </div>
+      <p style="margin-top:1rem;font-size:.82rem;color:var(--muted);">
+        💡 Pour fixer définitivement le lien, remplacez l'attribut <code style="color:var(--c2)">href="#"</code> du bouton CV dans le code HTML.
+      </p>
     </div>
-    <a href="cv.pdf" class="btn btn-primary" download>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Télécharger le CV
-    </a>
-    <p style="font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);">
-      → Remplace <code style="color:var(--accent)">cv.pdf</code> par le lien vers ton fichier
-    </p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2024 — Nathan Mouillé &nbsp;·&nbsp; BUT Réseaux &amp; Télécommunications &nbsp;·&nbsp; Fait avec 💻</p>
+  <p>Portfolio BUT Réseaux &amp; Télécoms — 2ème année &nbsp;·&nbsp; Fait avec <span>♥</span> et du HTML</p>
 </footer>
+
+<script>
+  function showYear(n) {
+    document.querySelectorAll('.year-tab').forEach((t,i) => t.classList.toggle('active', i === n - 1));
+    document.querySelectorAll('.year-panel').forEach((p,i) => p.classList.toggle('active', i === n - 1));
+  }
+
+  function updateCvBtn() {
+    const val = document.getElementById('cv-link-input').value.trim();
+    const btn = document.getElementById('cv-btn');
+    if (val) {
+      btn.href = val;
+      btn.style.pointerEvents = 'auto';
+      btn.style.opacity = '1';
+    } else {
+      btn.href = '#';
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '.5';
+    }
+  }
+
+  // Intersection Observer pour les animations au scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.comp-card, .projet-card, .cv-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
-
