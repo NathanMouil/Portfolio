@@ -7,3 +7,9 @@ Ton nom → remplace R&T Portfolio dans la nav et le titre hero
 Tes projets → modifie les 3 cartes (titre, description, tags, et remplace href="#" par ton lien GitHub/GitLab)
 Ton CV → remplace href="#" dans le bouton cv-btn par ton lien permanent, ou laisse le champ dynamique tel quel
 Les compétences → ajuste les tags selon ce que tu as vraiment vu en cours
+Structure de la page :
+
+Hero — section d'accueil avec ton statut BUT R&T 2ème année et deux boutons (projets / CV)
+Compétences — avec deux onglets cliquables : 1ère Année et 2ème Année, chacun détaillant les 3 compétences (Administrer 🛡️, Connecter 🌐, Programmer 💻) avec leurs technologies associées
+Projets — 3 cartes prêtes à remplir avec titre, description, tags et lien
+CV — une section avec un champ pour coller ton lien (Google Drive, PDF…) qui active dynamiquement le bouton
