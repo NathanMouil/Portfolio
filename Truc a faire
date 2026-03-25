@@ -1,3 +1,9 @@
 Mets à jour le href cv.pdf avec le lien ou chemin vers ton vrai CV
 Remplace les href="#" des projets par tes vrais liens
 Modifie les descriptions des projets avec tes vraies réalisations
+Pour personnaliser :
+
+Ton nom → remplace R&T Portfolio dans la nav et le titre hero
+Tes projets → modifie les 3 cartes (titre, description, tags, et remplace href="#" par ton lien GitHub/GitLab)
+Ton CV → remplace href="#" dans le bouton cv-btn par ton lien permanent, ou laisse le champ dynamique tel quel
+Les compétences → ajuste les tags selon ce que tu as vraiment vu en cours
