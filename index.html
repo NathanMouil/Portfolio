@@ -221,17 +221,16 @@
       color: #fff;
       box-shadow: 0 4px 20px rgba(124,58,237,.4);
     }
-    .projets-grid-sae {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .projets-grid-sae {
-    grid-template-columns: 1fr;
+      .projets-grid-sae {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
   }
-}
+
+    @media (max-width: 768px) {
+      .projets-grid-sae {
+        grid-template-columns: 1fr;}
+    }
 
     .year-panel, .projets-panel, .detail-panel { display: none; }
     .year-panel.active, .projets-panel.active, .detail-panel.active { display: block; }
@@ -1163,25 +1162,6 @@
             <a href="https://github.com/NathanMouil/Portfolio/blob/main/projet_integratif-main.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
           </div>
         </div>
-
-        <div class="projet-card">
-          <div class="projet-banner pb-1">Espace libre</div>
-          <div class="projet-body">
-            <h3 class="projet-title">Projet à ajouter</h3>
-            <p class="projet-desc">
-              Tu peux utiliser cette carte pour ajouter un autre projet ou une ressource liée à ta première année.
-            </p>
-          </div>
-          <div class="projet-footer">
-            <div class="projet-tags">
-              <span class="projet-tag">À compléter</span>
-            </div>
-            <a href="#" class="btn-sm disabled">À venir</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
 
     <!-- 2ème année -->
     <div class="projets-panel" id="projets-2">
