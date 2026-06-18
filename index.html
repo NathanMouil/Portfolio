@@ -48,7 +48,7 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; flex-wrap: wrap; justify-content: flex-end; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
@@ -666,6 +666,17 @@
       text-align: center;
     }
 
+    .cv-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 768px) {
+      .cv-columns { grid-template-columns: 1fr; }
+    }
+
     .cv-card {
       max-width: 720px;
       margin: 0 auto;
@@ -800,6 +811,8 @@
     <li><a href="#competences" onclick="goToPage('home')">Compétences</a></li>
     <li><a href="#projets" onclick="goToPage('home')">Projets</a></li>
     <li><a href="#parcours" onclick="goToPage('home')">Parcours</a></li>
+    <li><a href="#stage" onclick="goToPage('home')">Stage</a></li>
+    <li><a href="#experiences" onclick="goToPage('home')">Expériences</a></li>
     <li><a href="#cv" onclick="goToPage('home')">CV</a></li>
   </ul>
 </nav>
@@ -1163,6 +1176,9 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
     <!-- 2ème année -->
     <div class="projets-panel" id="projets-2">
       <div class="projets-grid projets-grid-sae">
@@ -1257,32 +1273,97 @@
       </div>
     </section>
 
+    <section id="stage" style="background: var(--bg);">
+      <div class="container">
+        <div class="toolbar">
+          <div>
+            <p class="section-label">Professionnalisation</p>
+            <h2 class="section-title">Mon Rapport de Stage</h2>
+          </div>
+          <button class="btn btn-outline" onclick="goToPage('stage')">Ouvrir mon rapport de stage</button>
+        </div>
+        <p class="section-desc">
+          Retrouve ici un modèle prêt à remplir pour présenter ton entreprise, tes missions, les compétences
+          mobilisées et le bilan de ton stage.
+        </p>
+      </div>
+    </section>
+
+    <section id="experiences" style="background: var(--bg2);">
+      <div class="container">
+        <div class="toolbar">
+          <div>
+            <p class="section-label">Parcours pro</p>
+            <h2 class="section-title">Mes Expériences Professionnelles</h2>
+          </div>
+          <button class="btn btn-outline" onclick="goToPage('experiences')">Ouvrir mes expériences</button>
+        </div>
+        <p class="section-desc">
+          Stages, alternances, jobs étudiants ou bénévolat : ajoute chaque expérience grâce au modèle fourni,
+          elles s'afficheront automatiquement ci-dessous une fois renseignées.
+        </p>
+      </div>
+    </section>
+
     <section id="cv">
       <div class="container">
-        <div class="cv-card">
-          <div class="cv-kicker">Curriculum Vitae</div>
-          <h3>Consulter mon CV</h3>
-          <p>
-            Retrouvez mon parcours complet, mes expériences et mes compétences dans mon CV.
-          </p>
+        <p class="section-label" style="text-align:center;">Curriculum Vitae</p>
+        <h2 class="section-title" style="text-align:center;">Mes CV</h2>
+        <p class="section-desc" style="margin-left:auto;margin-right:auto;text-align:center;">
+          Deux versions de mon CV sont disponibles ci-dessous, une par année de formation.
+        </p>
+        <div class="cv-columns">
+          <div class="cv-card">
+            <div class="cv-kicker">CV — 1ère année</div>
+            <h3>Consulter mon CV (1ère année)</h3>
+            <p>
+              Retrouvez mon parcours, mes expériences et mes compétences de 1ère année dans ce CV.
+            </p>
 
-          <div class="cv-input-row">
-            <input
-              class="cv-input"
-              id="cv-link-input"
-              type="url"
-              placeholder="https://drive.google.com/... ou lien PDF"
-              oninput="updateCvBtn()"
-            />
-            <a id="cv-btn" href="#" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
-              Voir le CV →
-            </a>
+            <div class="cv-input-row">
+              <input
+                class="cv-input"
+                id="cv-link-input-1"
+                type="url"
+                placeholder="https://drive.google.com/... ou lien PDF"
+                oninput="updateCvBtn('1')"
+              />
+              <a id="cv-btn-1" href="#" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
+                Voir le CV →
+              </a>
+            </div>
+
+            <p class="cv-note">
+              Pour fixer définitivement le lien, remplacez l’attribut
+              <code style="color:var(--c2)">href="#"</code> du bouton CV (id="cv-btn-1") dans le code HTML.
+            </p>
           </div>
 
-          <p class="cv-note">
-            Pour fixer définitivement le lien, remplacez l’attribut
-            <code style="color:var(--c2)">href="#"</code> du bouton CV dans le code HTML.
-          </p>
+          <div class="cv-card">
+            <div class="cv-kicker">CV — 2ème année</div>
+            <h3>Consulter mon CV (2ème année)</h3>
+            <p>
+              Retrouvez mon parcours, mes expériences et mes compétences de 2ème année dans ce CV.
+            </p>
+
+            <div class="cv-input-row">
+              <input
+                class="cv-input"
+                id="cv-link-input-2"
+                type="url"
+                placeholder="https://drive.google.com/... ou lien PDF"
+                oninput="updateCvBtn('2')"
+              />
+              <a id="cv-btn-2" href="#" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
+                Voir le CV →
+              </a>
+            </div>
+
+            <p class="cv-note">
+              Pour fixer définitivement le lien, remplacez l’attribut
+              <code style="color:var(--c2)">href="#"</code> du bouton CV (id="cv-btn-2") dans le code HTML.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -1372,6 +1453,167 @@
         <div class="list-area">
           <h3 class="list-title">Projets ajoutés</h3>
           <div class="detail-grid" id="custom-projects-list"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="page-stage" class="page">
+    <section style="padding-top:8rem;">
+      <div class="container">
+        <div class="toolbar">
+          <button class="btn back-btn" onclick="goToPage('home')">← Retour au portfolio</button>
+        </div>
+
+        <p class="section-label">Professionnalisation</p>
+        <h2 class="section-title">Mon rapport de stage</h2>
+        <p class="section-desc">
+          Remplis le modèle ci-dessous pour rédiger ton rapport de stage. Il s'affichera ensuite sous forme
+          de fiche prête à consulter, juste en dessous du formulaire.
+        </p>
+
+        <div class="project-manager-card">
+          <div class="project-manager-body">
+            <h3 class="project-manager-title">Modèle à remplir</h3>
+            <p class="project-manager-desc">
+              Renseigne au minimum le titre du stage et l'entreprise, puis génère ta fiche.
+            </p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="stage-title">Titre du stage / poste occupé</label>
+                <input class="form-input" id="stage-title" type="text" placeholder="Exemple : Technicien réseau" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="stage-company">Entreprise</label>
+                <input class="form-input" id="stage-company" type="text" placeholder="Nom de l'entreprise" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="stage-location">Lieu</label>
+                <input class="form-input" id="stage-location" type="text" placeholder="Ville, pays" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="stage-dates">Période</label>
+                <input class="form-input" id="stage-dates" type="text" placeholder="Exemple : Avril 2026 – Juin 2026" />
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="stage-context">Présentation de l'entreprise / contexte</label>
+                <textarea class="form-textarea" id="stage-context" placeholder="Décris l'entreprise, son secteur d'activité et le contexte de ton arrivée."></textarea>
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="stage-missions">Missions réalisées</label>
+                <textarea class="form-textarea" id="stage-missions" placeholder="Liste les tâches et missions confiées pendant le stage."></textarea>
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="stage-skills">Compétences mobilisées</label>
+                <input class="form-input" id="stage-skills" type="text" placeholder="Exemple : Cisco, Linux, Travail d'équipe" />
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="stage-bilan">Bilan et apprentissages</label>
+                <textarea class="form-textarea" id="stage-bilan" placeholder="Ce que ce stage t'a apporté, les difficultés rencontrées, ce que tu en retiens."></textarea>
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="stage-link">Lien vers le rapport complet (PDF, Drive...)</label>
+                <input class="form-input" id="stage-link" type="url" placeholder="https://..." />
+              </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="generateStageReport()">Générer mon rapport de stage</button>
+            <p class="status" id="stage-status"></p>
+          </div>
+        </div>
+
+        <div class="list-area">
+          <h3 class="list-title">Ma fiche de stage</h3>
+          <div class="detail-grid" id="stage-report-display"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="page-experiences" class="page">
+    <section style="padding-top:8rem;">
+      <div class="container">
+        <div class="toolbar">
+          <button class="btn back-btn" onclick="goToPage('home')">← Retour au portfolio</button>
+        </div>
+
+        <p class="section-label">Parcours pro</p>
+        <h2 class="section-title">Mes expériences professionnelles</h2>
+        <p class="section-desc">
+          Remplis ce modèle pour chaque expérience (stage, alternance, job étudiant, bénévolat...).
+          Chaque fiche ajoutée s'affiche automatiquement ci-dessous.
+        </p>
+
+        <div class="project-manager-card">
+          <div class="project-manager-body">
+            <h3 class="project-manager-title">Modèle à remplir</h3>
+            <p class="project-manager-desc">
+              Renseigne au minimum le poste et l'entreprise, puis ajoute l'expérience.
+            </p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="exp-title">Poste occupé</label>
+                <input class="form-input" id="exp-title" type="text" placeholder="Exemple : Vendeur, Stagiaire support informatique..." />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="exp-company">Entreprise / organisme</label>
+                <input class="form-input" id="exp-company" type="text" placeholder="Nom de l'entreprise" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="exp-location">Lieu</label>
+                <input class="form-input" id="exp-location" type="text" placeholder="Ville, pays" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="exp-type">Type d'expérience</label>
+                <select class="form-select" id="exp-type">
+                  <option value="Stage">Stage</option>
+                  <option value="Alternance">Alternance</option>
+                  <option value="CDD">CDD</option>
+                  <option value="CDI">CDI</option>
+                  <option value="Job étudiant">Job étudiant</option>
+                  <option value="Bénévolat">Bénévolat</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="exp-dates">Période</label>
+                <input class="form-input" id="exp-dates" type="text" placeholder="Exemple : Juin 2025 – Août 2025" />
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="exp-missions">Missions / réalisations</label>
+                <textarea class="form-textarea" id="exp-missions" placeholder="Décris les tâches effectuées et tes principales réalisations."></textarea>
+              </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="exp-skills">Compétences mobilisées</label>
+                <input class="form-input" id="exp-skills" type="text" placeholder="Compétences séparées par des virgules" />
+              </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="addExperience()">Ajouter cette expérience</button>
+            <p class="status" id="exp-status"></p>
+            <p class="helper">Les compétences peuvent être séparées par des virgules pour créer plusieurs tags automatiquement.</p>
+          </div>
+        </div>
+
+        <div class="list-area">
+          <h3 class="list-title">Expériences ajoutées</h3>
+          <div class="detail-grid" id="experiences-list"></div>
         </div>
       </div>
     </section>
@@ -1553,9 +1795,9 @@
     observeAnimatedCards();
   }
 
-  function updateCvBtn() {
-    const val = document.getElementById('cv-link-input').value.trim();
-    const btn = document.getElementById('cv-btn');
+  function updateCvBtn(suffix) {
+    const val = document.getElementById('cv-link-input-' + suffix).value.trim();
+    const btn = document.getElementById('cv-btn-' + suffix);
     if (val) {
       btn.href = val;
       btn.style.pointerEvents = 'auto';
@@ -1645,7 +1887,7 @@
 
     list.prepend(card);
     status.textContent = selectedProjectFile
-      ? 'Projet ajouté avec succès avec son fichier d'illustration.'
+      ? "Projet ajouté avec succès avec son fichier d'illustration."
       : 'Projet ajouté avec succès dans la page dédiée.';
     status.style.color = 'var(--success)';
 
@@ -1658,6 +1900,97 @@
     document.getElementById('project-file-preview').innerHTML = '';
     selectedProjectFile = null;
     selectedProjectFileUrl = '';
+
+    observer.observe(card);
+  }
+
+  function generateStageReport() {
+    const title = document.getElementById('stage-title').value.trim();
+    const company = document.getElementById('stage-company').value.trim();
+    const location = document.getElementById('stage-location').value.trim();
+    const dates = document.getElementById('stage-dates').value.trim();
+    const context = document.getElementById('stage-context').value.trim();
+    const missions = document.getElementById('stage-missions').value.trim();
+    const skills = document.getElementById('stage-skills').value.trim();
+    const bilan = document.getElementById('stage-bilan').value.trim();
+    const link = document.getElementById('stage-link').value.trim();
+    const status = document.getElementById('stage-status');
+    const container = document.getElementById('stage-report-display');
+
+    if (!title || !company) {
+      status.textContent = 'Renseigne au minimum le titre du stage et l\'entreprise.';
+      status.style.color = '#f59e0b';
+      return;
+    }
+
+    const tags = skills ? skills.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+    container.innerHTML = `
+      <article class="detail-card fade-up" style="grid-column: 1 / -1;">
+        <div class="detail-banner pb-1">${dates || 'Stage'}</div>
+        <div class="detail-body">
+          <h3 class="detail-title">${title} — ${company}</h3>
+          ${location ? `<p class="helper" style="margin-bottom:1rem;">${location}</p>` : ''}
+          ${context ? `<p class="detail-desc"><strong>Contexte :</strong> ${context}</p>` : ''}
+          ${missions ? `<p class="detail-desc"><strong>Missions :</strong> ${missions}</p>` : ''}
+          ${bilan ? `<p class="detail-desc"><strong>Bilan :</strong> ${bilan}</p>` : ''}
+          <div class="detail-tags">
+            ${tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+        ${link ? `<div class="detail-footer"><span class="helper">Rapport complet disponible</span><a class="btn-sm" href="${link}" target="_blank" rel="noopener noreferrer">Voir le rapport →</a></div>` : ''}
+      </article>
+    `;
+
+    status.textContent = 'Ta fiche de stage a été générée avec succès.';
+    status.style.color = 'var(--success)';
+    observeAnimatedCards();
+  }
+
+  function addExperience() {
+    const title = document.getElementById('exp-title').value.trim();
+    const company = document.getElementById('exp-company').value.trim();
+    const location = document.getElementById('exp-location').value.trim();
+    const type = document.getElementById('exp-type').value;
+    const dates = document.getElementById('exp-dates').value.trim();
+    const missions = document.getElementById('exp-missions').value.trim();
+    const skills = document.getElementById('exp-skills').value.trim();
+    const status = document.getElementById('exp-status');
+    const list = document.getElementById('experiences-list');
+
+    if (!title || !company) {
+      status.textContent = 'Renseigne au minimum le poste et l\'entreprise.';
+      status.style.color = '#f59e0b';
+      return;
+    }
+
+    const tags = skills ? skills.split(',').map(s => s.trim()).filter(Boolean) : [];
+    const bannerClass = list.children.length % 3 === 0 ? 'pb-1' : list.children.length % 3 === 1 ? 'pb-2' : 'pb-3';
+
+    const card = document.createElement('article');
+    card.className = 'detail-card fade-up';
+    card.innerHTML = `
+      <div class="detail-banner ${bannerClass}">${type}${dates ? ' · ' + dates : ''}</div>
+      <div class="detail-body">
+        <h3 class="detail-title">${title} — ${company}</h3>
+        ${location ? `<p class="helper" style="margin-bottom:.8rem;">${location}</p>` : ''}
+        <p class="detail-desc">${missions}</p>
+        <div class="detail-tags">
+          ${tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
+        </div>
+      </div>
+    `;
+
+    list.prepend(card);
+    status.textContent = 'Expérience ajoutée avec succès.';
+    status.style.color = 'var(--success)';
+
+    document.getElementById('exp-title').value = '';
+    document.getElementById('exp-company').value = '';
+    document.getElementById('exp-location').value = '';
+    document.getElementById('exp-dates').value = '';
+    document.getElementById('exp-missions').value = '';
+    document.getElementById('exp-skills').value = '';
 
     observer.observe(card);
   }
