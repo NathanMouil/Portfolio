@@ -221,6 +221,17 @@
       color: #fff;
       box-shadow: 0 4px 20px rgba(124,58,237,.4);
     }
+    .projets-grid-sae {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .projets-grid-sae {
+    grid-template-columns: 1fr;
+  }
+}
 
     .year-panel, .projets-panel, .detail-panel { display: none; }
     .year-panel.active, .projets-panel.active, .detail-panel.active { display: block; }
@@ -969,32 +980,35 @@
       </div>
     </section>
 
-    <section id="projets">
-      <div class="container">
-        <div class="toolbar">
-          <div>
-            <p class="section-label">Réalisations</p>
-            <h2 class="section-title">Mes Projets</h2>
-          </div>
-          <button class="btn btn-outline" onclick="goToPage('projets-page')">Ouvrir la page projets</button>
-        </div>
+<section id="projets">
+  <div class="container">
+    <div class="toolbar">
+      <div>
+        <p class="section-label">Réalisations</p>
+        <h2 class="section-title">Mes Projets</h2>
+      </div>
+      <button class="btn btn-outline" onclick="goToPage('projets-page')">Ouvrir la page projets</button>
+    </div>
 
-        <p class="section-desc">
-          Cette section est aussi cliquable et ouvre une page dédiée où tu peux ajouter, modifier
-          et afficher tes projets plus facilement.
-        </p>
+    <p class="section-desc">
+      Retrouvez ici les SAE réalisées pendant ma formation. Les projets de 1ère année regroupent les SAE1 et SAE2.
+    </p>
 
-        <div class="projets-tabs">
-          <button class="projets-tab active" onclick="showProjets(1)">Projets 1ère Année</button>
-          <button class="projets-tab" onclick="showProjets(2)">Projets 2ème Année</button>
-        </div>
+    <div class="projets-tabs">
+      <button class="projets-tab active" onclick="showProjets(1)">Projets 1ère Année</button>
+      <button class="projets-tab" onclick="showProjets(2)">Projets 2ème Année</button>
+    </div>
+
+    <!-- 1ère année -->
+    <div class="projets-panel active" id="projets-1">
+      <div class="projets-grid projets-grid-sae">
 
         <div class="projet-card">
           <div class="projet-banner pb-2">Projet</div>
           <div class="projet-body">
             <h3 class="projet-title">SAE101</h3>
             <p class="projet-desc">
-              Le but de ce projet était d'étudier les risques sur internet qu'ils soient humains ou informatique.
+              Le but de ce projet était d'étudier les risques sur internet, qu'ils soient humains ou informatiques.
             </p>
           </div>
           <div class="projet-footer">
@@ -1002,214 +1016,234 @@
               <span class="projet-tag">Documentation</span>
               <span class="projet-tag">Recherche d'information</span>
             </div>
-            <a href="https://raw.githubusercontent.com/NathanMouil/Portfolio/refs/heads/main/Diapo.pptx" class="btn-sm" target="_blank" rel="noopener">Voir</a>
+            <a href="https://raw.githubusercontent.com/NathanMouil/Portfolio/refs/heads/main/Diapo.pptx" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
           </div>
         </div>
 
-            <div class="projet-card">
-              <div class="projet-banner pb-2">Projet</div>
-              <div class="projet-body">
-                <h3 class="projet-title">SAE102</h3>
-                <p class="projet-desc">
-                  Dans ce projet nous devions faire une réseau dans une succursalle, il fallait mettre en place plusieurs commutateur comportant des Vlans. Le but final était de comprendre comment configurer des équipement réseaux.
-                </p>
-              </div>
-              <div class="projet-footer">
-                <div class="projet-tags">
-                  <span class="projet-tag">Réseau</span>
-                  <span class="projet-tag">Cisco</span>
-                </div>
-                <a href="https://github.com/NathanMouil/Portfolio/blob/main/SAE1.02_CahierDesCharges-1.pdf" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-              </div>
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE102</h3>
+            <p class="projet-desc">
+              Dans ce projet, nous devions créer un réseau dans une succursale avec plusieurs commutateurs et VLAN. Le but final était de comprendre la configuration des équipements réseau.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Cisco</span>
             </div>
-
-
-              <div class="projet-card">
-                <div class="projet-banner pb-2">Projet</div>
-                <div class="projet-body">
-                  <h3 class="projet-title">SAE103</h3>
-                  <p class="projet-desc">
-                    Nous devions installés notre propre réseau wifi puis effectuer des mesures de qualité wifi dans le batiment.
-                  </p>
-                </div>
-                <div class="projet-footer">
-                  <div class="projet-tags">
-                    <span class="projet-tag">Réseau</span>
-                    <span class="projet-tag">Cisco</span>
-                    <span class="projet-tag">Packet Tracer</span>
-                  </div>
-                  <a href="https://github.com/NathanMouil/Portfolio/blob/main/rapportsae13.pdf" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-                </div>
-              </div>
-
-
-              <div class="projet-card">
-                <div class="projet-banner pb-2">Projet</div>
-                <div class="projet-body">
-                  <h3 class="projet-title">SAE104</h3>
-                  <p class="projet-desc">
-                    J'ai créer un site web qui devait afficher mon CV.
-                  </p>
-                </div>
-                <div class="projet-footer">
-                  <div class="projet-tags">
-                    <span class="projet-tag">CV</span>
-                    <span class="projet-tag">HTML</span>
-                    <span class="projet-tag">Site web</span>
-                  </div>
-                  <a href="https://github.com/NathanMouil/Portfolio/blob/main/SAE104.zip" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-                </div>
-              </div>
-
-
-                <div class="projet-card">
-                  <div class="projet-banner pb-2">Projet</div>
-                  <div class="projet-body">
-                    <h3 class="projet-title">SAE105</h3>
-                    <p class="projet-desc">
-                      Nous devions créer un outils de reporting dans le but de trouver et classer les fichiers par taille et permettre de les supprimer.
-                    </p>
-                  </div>
-                  <div class="projet-footer">
-                    <div class="projet-tags">
-                      <span class="projet-tag">Python</span>
-                      <span class="projet-tag">Documentation</span>
-                    </div>
-                    <a href="https://github.com/NathanMouil/Portfolio/blob/main/Sujet%20SAE%20105-2.pdf" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-                  </div>
-                </div>
-
-                <div class="projet-card">
-                  <div class="projet-banner pb-2">Projet</div>
-                  <div class="projet-body">
-                    <h3 class="projet-title">SAE201</h3>
-                    <p class="projet-desc">
-                      Le but de ce projet était de créer un petit réseau sur le logiciel GNS3.
-                    </p>
-                  </div>
-                  <div class="projet-footer">
-                    <div class="projet-tags">
-                      <span class="projet-tag">GNS3</span>
-                      <span class="projet-tag">Réseau</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="projet-card">
-                  <div class="projet-banner pb-2">Projet</div>
-                  <div class="projet-body">
-                    <h3 class="projet-title">SAE202</h3>
-                    <p class="projet-desc">
-                      Nous devions mettre en place une Web radio sur une carte arduino esp32 pour entendre la radio.
-                    </p>
-                  </div>
-                  <div class="projet-footer">
-                    <div class="projet-tags">
-                      <span class="projet-tag">Arduino</span>
-                      <span class="projet-tag">Codage</span>
-                      <span class="projet-tag">Documentation</span>
-                    </div>
-                    <a href="https://github.com/NathanMouil/Portfolio/blob/main/SAE202-Web_Radio.pdf" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-                  </div>
-                </div>
-
-                <div class="projet-card">
-                  <div class="projet-banner pb-2">Projet</div>
-                  <div class="projet-body">
-                    <h3 class="projet-title">SAE203</h3>
-                    <p class="projet-desc">
-                      Nous devions mettre en place un serveur ainsi qu'une base de données et un site web pour fournir au proffeseur une plateforme leur permettant de gérer et ajouter des notes.
-                    </p>
-                  </div>
-                  <div class="projet-footer">
-                    <div class="projet-tags">
-                      <span class="projet-tag">Python</span>
-                      <span class="projet-tag">Site web</span>
-                      <span class="projet-tag">SQL</span>
-                    </div>
-                    <a href="https://github.com/NathanMouil/Portfolio/blob/main/gestion_notes_site.zip" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-                  </div>
-                </div>
-
-                <div class="projet-card">
-                  <div class="projet-banner pb-2">Projet intégratif</div>
-                  <div class="projet-body">
-                    <h3 class="projet-title">SAE204</h3>
-                    <p class="projet-desc">
-                      Dans ce projet nous devions utilisé toute les compétences de la première année. Il fallait mettre en place un réseau interne avec un routeur et un switch connectant un serveur et des clients ainsi que des téléphones sip.
-                    </p>
-                  </div>
-                  <div class="projet-footer">
-                    <div class="projet-tags">
-                      <span class="projet-tag">Réseau</span>
-                      <span class="projet-tag">Site web</span>
-                      <span class="projet-tag">Python</span>
-                      <span class="projet-tag">MQTT</span>
-                      <span class="projet-tag">SQL</span>
-                      <span class="projet-tag">Documentation</span>
-                    </div>
-                    <a href="https://github.com/NathanMouil/Portfolio/blob/main/projet_integratif-main.zip" class="btn-sm" target="_blank" rel="noopener">Voir</a>
-                  </div>
-                </div>   
-        
-        <div class="projets-panel" id="projets-2">
-          <div class="projets-grid">
-            <div class="projet-card">
-              <div class="projet-banner pb-2">Architecture réseau</div>
-              <div class="projet-body">
-                <h3 class="projet-title">Projet 1 – 2ème année</h3>
-                <p class="projet-desc">
-                  Exemple : projet de routage avancé multi-routeurs avec chiffrement et interface graphique.
-                </p>
-              </div>
-              <div class="projet-footer">
-                <div class="projet-tags">
-                  <span class="projet-tag">Python</span>
-                  <span class="projet-tag">Sockets</span>
-                  <span class="projet-tag">Chiffrement</span>
-                </div>
-                <button class="btn-sm" onclick="goToPage('projets-page')">Voir la page</button>
-              </div>
-            </div>
-
-            <div class="projet-card">
-              <div class="projet-banner pb-3">Automatisation</div>
-              <div class="projet-body">
-                <h3 class="projet-title">Projet 2 – 2ème année</h3>
-                <p class="projet-desc">
-                  Exemple : projet d’automatisation réseau ou supervision.
-                </p>
-              </div>
-              <div class="projet-footer">
-                <div class="projet-tags">
-                  <span class="projet-tag">Ansible</span>
-                  <span class="projet-tag">Supervision</span>
-                  <span class="projet-tag">Linux</span>
-                </div>
-                <button class="btn-sm" onclick="goToPage('projets-page')">Voir la page</button>
-              </div>
-            </div>
-
-            <div class="projet-card">
-              <div class="projet-banner pb-1">Infrastructure</div>
-              <div class="projet-body">
-                <h3 class="projet-title">Projet 3 – 2ème année</h3>
-                <p class="projet-desc">
-                  Ajoutez ici un autre projet que vous souhaitez valoriser.
-                </p>
-              </div>
-              <div class="projet-footer">
-                <div class="projet-tags">
-                  <span class="projet-tag">Cisco</span>
-                  <span class="projet-tag">QoS</span>
-                </div>
-                <button class="btn-sm" onclick="goToPage('projets-page')">Voir la page</button>
-              </div>
-            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/SAE1.02_CahierDesCharges-1.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
           </div>
         </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE103</h3>
+            <p class="projet-desc">
+              Nous devions installer notre propre réseau Wi-Fi puis effectuer des mesures de qualité dans le bâtiment.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Cisco</span>
+              <span class="projet-tag">Packet Tracer</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/rapportsae13.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE104</h3>
+            <p class="projet-desc">
+              J'ai créé un site web qui devait afficher mon CV.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">CV</span>
+              <span class="projet-tag">HTML</span>
+              <span class="projet-tag">Site web</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/SAE104.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE105</h3>
+            <p class="projet-desc">
+              Nous devions créer un outil de reporting pour trouver et classer les fichiers par taille, puis permettre leur suppression.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">Documentation</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/Sujet%20SAE%20105-2.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE201</h3>
+            <p class="projet-desc">
+              Le but de ce projet était de créer un petit réseau sur le logiciel GNS3.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">GNS3</span>
+              <span class="projet-tag">Réseau</span>
+            </div>
+            <a href="#" class="btn-sm disabled">À ajouter</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE202</h3>
+            <p class="projet-desc">
+              Nous devions mettre en place une web radio sur une carte Arduino ESP32 pour écouter la radio.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Arduino</span>
+              <span class="projet-tag">Codage</span>
+              <span class="projet-tag">Documentation</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/SAE202-Web_Radio.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE203</h3>
+            <p class="projet-desc">
+              Nous devions mettre en place un serveur, une base de données et un site web permettant aux professeurs de gérer et ajouter des notes.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">Site web</span>
+              <span class="projet-tag">SQL</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/gestion_notes_site.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet intégratif</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE204</h3>
+            <p class="projet-desc">
+              Dans ce projet, nous devions utiliser toutes les compétences de la première année avec un réseau interne, un routeur, un switch, un serveur, des clients et des téléphones SIP.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Site web</span>
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">MQTT</span>
+              <span class="projet-tag">SQL</span>
+              <span class="projet-tag">Documentation</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/projet_integratif-main.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-1">Espace libre</div>
+          <div class="projet-body">
+            <h3 class="projet-title">Projet à ajouter</h3>
+            <p class="projet-desc">
+              Tu peux utiliser cette carte pour ajouter un autre projet ou une ressource liée à ta première année.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">À compléter</span>
+            </div>
+            <a href="#" class="btn-sm disabled">À venir</a>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
+
+    <!-- 2ème année -->
+    <div class="projets-panel" id="projets-2">
+      <div class="projets-grid projets-grid-sae">
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Architecture réseau</div>
+          <div class="projet-body">
+            <h3 class="projet-title">Projet 1 – 2ème année</h3>
+            <p class="projet-desc">
+              Remplace ce texte par ton vrai projet de 2ème année et ajoute un lien GitHub, PDF ou page HTML.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">Sockets</span>
+              <span class="projet-tag">Chiffrement</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-3">Automatisation</div>
+          <div class="projet-body">
+            <h3 class="projet-title">Projet 2 – 2ème année</h3>
+            <p class="projet-desc">
+              Ajoute ici ton projet d’automatisation réseau, supervision ou administration système.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Ansible</span>
+              <span class="projet-tag">Supervision</span>
+              <span class="projet-tag">Linux</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-1">Infrastructure</div>
+          <div class="projet-body">
+            <h3 class="projet-title">Projet 3 – 2ème année</h3>
+            <p class="projet-desc">
+              Ajoute ici un autre projet que tu souhaites valoriser pour la deuxième année.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Cisco</span>
+              <span class="projet-tag">QoS</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="parcours">
       <div class="container">
