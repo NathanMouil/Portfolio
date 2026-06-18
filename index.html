@@ -503,6 +503,72 @@
       line-height: 1.6;
     }
 
+    .file-preview {
+      margin-top: .9rem;
+      padding: 1rem;
+      border: 1px dashed rgba(255,255,255,.16);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      min-height: 52px;
+      display: none;
+    }
+
+    .file-preview.active {
+      display: block;
+    }
+
+    .file-preview img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-top: .75rem;
+    }
+
+    .file-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      align-items: center;
+    }
+
+    .file-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .35rem .7rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      background: rgba(6,182,212,.12);
+      color: var(--c2);
+      border: 1px solid rgba(6,182,212,.2);
+    }
+
+    .project-illustration {
+      margin-top: 1rem;
+      display: grid;
+      gap: .85rem;
+    }
+
+    .project-illustration img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+
+    .project-file-link {
+      color: var(--c2);
+      text-decoration: none;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .project-file-link:hover {
+      color: var(--text);
+    }
+
     .status {
       color: var(--success);
       font-size: .88rem;
@@ -1152,6 +1218,13 @@
                 <label class="form-label" for="project-desc">Description</label>
                 <textarea class="form-textarea" id="project-desc" placeholder="Décris ici le contexte, les objectifs, ton rôle et les résultats."></textarea>
               </div>
+
+              <div class="form-group form-group-full">
+                <label class="form-label" for="project-file">Illustration du projet</label>
+                <input class="form-input" id="project-file" type="file" accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.zip,.rar,.txt" onchange="handleProjectFile(event)" />
+                <p class="helper">Tu peux déposer une image, un PDF, un document ou une archive pour illustrer le projet.</p>
+                <div id="project-file-preview" class="file-preview"></div>
+              </div>
             </div>
 
             <button class="btn btn-primary" onclick="addProjectCard()">Ajouter ce projet</button>
@@ -1358,6 +1431,43 @@
     }
   }
 
+  let selectedProjectFile = null;
+  let selectedProjectFileUrl = '';
+
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' octets';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' Ko';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' Mo';
+  }
+
+  function handleProjectFile(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('project-file-preview');
+
+    if (!file) {
+      selectedProjectFile = null;
+      selectedProjectFileUrl = '';
+      preview.classList.remove('active');
+      preview.innerHTML = '';
+      return;
+    }
+
+    selectedProjectFile = file;
+    if (selectedProjectFileUrl) URL.revokeObjectURL(selectedProjectFileUrl);
+    selectedProjectFileUrl = URL.createObjectURL(file);
+
+    const isImage = file.type.startsWith('image/');
+    preview.classList.add('active');
+    preview.innerHTML = `
+      <div class="file-meta">
+        <span class="file-pill">Fichier sélectionné</span>
+        <span class="helper">${file.name}</span>
+        <span class="helper">${formatFileSize(file.size)}</span>
+      </div>
+      ${isImage ? `<img src="${selectedProjectFileUrl}" alt="Aperçu du fichier sélectionné">` : `<p class="helper" style="margin-top:.75rem;">Aperçu non disponible pour ce type de fichier, mais il sera attaché à la carte du projet.</p>`}
+    `;
+  }
+
   function addProjectCard() {
     const title = document.getElementById('project-title').value.trim();
     const year = document.getElementById('project-year').value;
@@ -1375,6 +1485,12 @@
 
     const tags = tech ? tech.split(',').map(t => t.trim()).filter(Boolean) : [];
     const bannerClass = list.children.length % 3 === 0 ? 'pb-1' : list.children.length % 3 === 1 ? 'pb-2' : 'pb-3';
+    const fileBlock = selectedProjectFile ? `
+      <div class="project-illustration">
+        ${selectedProjectFile.type.startsWith('image/') ? `<img src="${selectedProjectFileUrl}" alt="Illustration du projet ${title}">` : ''}
+        <a class="project-file-link" href="${selectedProjectFileUrl}" download="${selectedProjectFile.name}" target="_blank" rel="noopener noreferrer">Ouvrir le fichier : ${selectedProjectFile.name}</a>
+      </div>
+    ` : '';
 
     const card = document.createElement('article');
     card.className = 'detail-card fade-up';
@@ -1387,17 +1503,25 @@
           <span class="detail-tag">${year}</span>
           ${tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
         </div>
+        ${fileBlock}
       </div>
     `;
 
     list.prepend(card);
-    status.textContent = 'Projet ajouté avec succès dans la page dédiée.';
+    status.textContent = selectedProjectFile
+      ? 'Projet ajouté avec succès avec son fichier d'illustration.'
+      : 'Projet ajouté avec succès dans la page dédiée.';
     status.style.color = 'var(--success)';
 
     document.getElementById('project-title').value = '';
     document.getElementById('project-category').value = '';
     document.getElementById('project-tech').value = '';
     document.getElementById('project-desc').value = '';
+    document.getElementById('project-file').value = '';
+    document.getElementById('project-file-preview').classList.remove('active');
+    document.getElementById('project-file-preview').innerHTML = '';
+    selectedProjectFile = null;
+    selectedProjectFileUrl = '';
 
     observer.observe(card);
   }
