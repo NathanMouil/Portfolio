@@ -661,6 +661,25 @@
       line-height: 1.6;
     }
 
+    .stage-card {
+      overflow: hidden;
+    }
+    
+    .stage-image {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+    
+    .stage-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }    
+    
     #cv {
       background: var(--bg2);
       text-align: center;
@@ -1404,11 +1423,11 @@
     
             <div class="projet-card stage-card">
               <div class="stage-image">
-                <img src="images/stage1.jpg" alt="Illustration du stage" />
+                <img src="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/Poster.png" alt="Poster sur stage" />
               </div>
               <div class="projet-banner pb-3">Stage</div>
               <div class="projet-body">
-                <h3 class="projet-title">Nom du stage</h3>
+                <h3 class="projet-title">Technicien chez Quonex Alsatel</h3>
                 <p class="projet-desc">
                   Décris ici ton stage, l’entreprise, les missions confiées, les technologies utilisées
                   et ce que tu as appris.
@@ -1418,32 +1437,11 @@
                 <div class="projet-tags">
                   <span class="projet-tag">Stage</span>
                   <span class="projet-tag">Entreprise</span>
-                  <span class="projet-tag">Développement</span>
+                  <span class="projet-tag">Téléphonie</span>
                 </div>
-                <a href="#" class="btn-sm disabled">À compléter</a>
+                <a href="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/Poster.png" class="btn-sm disabled">Voir</a>
               </div>
-            </div>
-    
-            <div class="projet-card stage-card">
-              <div class="stage-image">
-                <img src="images/stage2.jpg" alt="Illustration du stage 2" />
-              </div>
-              <div class="projet-banner pb-2">Stage</div>
-              <div class="projet-body">
-                <h3 class="projet-title">Deuxième stage</h3>
-                <p class="projet-desc">
-                  Ajoute ici un second stage si nécessaire.
-                </p>
-              </div>
-              <div class="projet-footer">
-                <div class="projet-tags">
-                  <span class="projet-tag">Infrastructure</span>
-                  <span class="projet-tag">Télécom</span>
-                </div>
-                <a href="#" class="btn-sm disabled">À compléter</a>
-              </div>
-            </div>
-    
+            </div>    
           </div>
         </div>
       </div>
@@ -1454,59 +1452,35 @@
         <p class="section-label" style="text-align:center;">Curriculum Vitae</p>
         <h2 class="section-title" style="text-align:center;">Mes CV</h2>
         <p class="section-desc" style="margin-left:auto;margin-right:auto;text-align:center;">
-          Deux versions de mon CV sont disponibles ci-dessous, une par année de formation.
+          Deux versions de mon CV sont disponibles ci-dessous, en français et anglais.
         </p>
         <div class="cv-columns">
           <div class="cv-card">
-            <div class="cv-kicker">CV — 1ère année</div>
-            <h3>Consulter mon CV (1ère année)</h3>
+            <div class="cv-kicker">CV en français</div>
+            <h3>Consulter mon CV en français</h3>
             <p>
               Retrouvez mon parcours, mes expériences et mes compétences de 1ère année dans ce CV.
             </p>
 
             <div class="cv-input-row">
-              <input
-                class="cv-input"
-                id="cv-link-input-1"
-                type="url"
-                placeholder="https://drive.google.com/... ou lien PDF"
-                oninput="updateCvBtn('1')"
-              />
-              <a id="cv-btn-1" href="#" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
+              <a id="cv-btn-1" href="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/CV%20Nathan%20MOUILLE.png" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
                 Voir le CV →
               </a>
             </div>
-
-            <p class="cv-note">
-              Pour fixer définitivement le lien, remplacez l’attribut
-              <code style="color:var(--c2)">href="#"</code> du bouton CV (id="cv-btn-1") dans le code HTML.
-            </p>
           </div>
 
           <div class="cv-card">
-            <div class="cv-kicker">CV — 2ème année</div>
-            <h3>Consulter mon CV (2ème année)</h3>
+            <div class="cv-kicker">CV en anglais</div>
+            <h3>Consulter mon CV en anglais</h3>
             <p>
               Retrouvez mon parcours, mes expériences et mes compétences de 2ème année dans ce CV.
             </p>
 
             <div class="cv-input-row">
-              <input
-                class="cv-input"
-                id="cv-link-input-2"
-                type="url"
-                placeholder="https://drive.google.com/... ou lien PDF"
-                oninput="updateCvBtn('2')"
-              />
-              <a id="cv-btn-2" href="#" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
+              <a id="cv-btn-2" href="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/CV%20Nathan%20MOUILLE.png" class="btn btn-primary" style="pointer-events:none;opacity:.5" target="_blank" rel="noopener">
                 Voir le CV →
               </a>
             </div>
-
-            <p class="cv-note">
-              Pour fixer définitivement le lien, remplacez l’attribut
-              <code style="color:var(--c2)">href="#"</code> du bouton CV (id="cv-btn-2") dans le code HTML.
-            </p>
           </div>
         </div>
       </div>
@@ -1905,6 +1879,17 @@
     document.querySelectorAll('.projets-tab').forEach((t, i) => t.classList.toggle('active', i === n - 1));
     document.querySelectorAll('#projets .projets-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
   }
+  
+  function showExperience(n) {
+    document.querySelectorAll('#experience .projets-tab').forEach((t, i) => {
+      t.classList.toggle('active', i === n - 1);
+    });
+
+    document.querySelectorAll('#experience .projets-panel').forEach((p, i) => {
+      p.classList.toggle('active', i === n - 1);
+    });
+  }
+
 
   function goToPage(pageName) {
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
