@@ -1336,35 +1336,116 @@
       </div>
     </section>
 
-    <section id="stage" style="background: var(--bg);">
+    <section id="experience">
       <div class="container">
         <div class="toolbar">
           <div>
-            <p class="section-label">Professionnalisation</p>
-            <h2 class="section-title">Mon Rapport de Stage</h2>
+            <p class="section-label">Parcours professionnel</p>
+            <h2 class="section-title">Expérience pro & Stage</h2>
           </div>
-          <button class="btn btn-outline" onclick="goToPage('stage')">Ouvrir mon rapport de stage</button>
         </div>
+    
         <p class="section-desc">
-          Retrouve ici un modèle prêt à remplir pour présenter ton entreprise, tes missions, les compétences
-          mobilisées et le bilan de ton stage.
+          Retrouvez ici mes expériences professionnelles et mes stages, avec une présentation claire
+          et détaillée de chaque mission.
         </p>
-      </div>
-    </section>
-
-    <section id="experiences" style="background: var(--bg2);">
-      <div class="container">
-        <div class="toolbar">
-          <div>
-            <p class="section-label">Parcours pro</p>
-            <h2 class="section-title">Mes Expériences Professionnelles</h2>
+    
+        <div class="projets-tabs">
+          <button class="projets-tab active" onclick="showExperience(1)">Expérience pro</button>
+          <button class="projets-tab" onclick="showExperience(2)">Stage</button>
+        </div>
+    
+        <!-- Expérience pro -->
+        <div class="projets-panel active" id="experience-1">
+          <div class="projets-grid projets-grid-sae">
+    
+            <div class="projet-card">
+              <div class="projet-banner pb-1">Expérience</div>
+              <div class="projet-body">
+                <h3 class="projet-title">Intitulé du poste</h3>
+                <p class="projet-desc">
+                  Décris ici ton expérience professionnelle, les missions réalisées, les outils utilisés
+                  et les compétences développées.
+                </p>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Entreprise</span>
+                  <span class="projet-tag">Réseau</span>
+                  <span class="projet-tag">Support</span>
+                </div>
+                <a href="#" class="btn-sm disabled">À compléter</a>
+              </div>
+            </div>
+    
+            <div class="projet-card">
+              <div class="projet-banner pb-2">Expérience</div>
+              <div class="projet-body">
+                <h3 class="projet-title">Deuxième expérience</h3>
+                <p class="projet-desc">
+                  Ajoute ici une autre expérience professionnelle avec une courte description.
+                </p>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Système</span>
+                  <span class="projet-tag">Linux</span>
+                </div>
+                <a href="#" class="btn-sm disabled">À compléter</a>
+              </div>
+            </div>
+    
           </div>
-          <button class="btn btn-outline" onclick="goToPage('experiences')">Ouvrir mes expériences</button>
         </div>
-        <p class="section-desc">
-          Stages, alternances, jobs étudiants ou bénévolat : ajoute chaque expérience grâce au modèle fourni,
-          elles s'afficheront automatiquement ci-dessous une fois renseignées.
-        </p>
+    
+        <!-- Stage -->
+        <div class="projets-panel" id="experience-2">
+          <div class="projets-grid projets-grid-sae">
+    
+            <div class="projet-card stage-card">
+              <div class="stage-image">
+                <img src="images/stage1.jpg" alt="Illustration du stage" />
+              </div>
+              <div class="projet-banner pb-3">Stage</div>
+              <div class="projet-body">
+                <h3 class="projet-title">Nom du stage</h3>
+                <p class="projet-desc">
+                  Décris ici ton stage, l’entreprise, les missions confiées, les technologies utilisées
+                  et ce que tu as appris.
+                </p>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Stage</span>
+                  <span class="projet-tag">Entreprise</span>
+                  <span class="projet-tag">Développement</span>
+                </div>
+                <a href="#" class="btn-sm disabled">À compléter</a>
+              </div>
+            </div>
+    
+            <div class="projet-card stage-card">
+              <div class="stage-image">
+                <img src="images/stage2.jpg" alt="Illustration du stage 2" />
+              </div>
+              <div class="projet-banner pb-2">Stage</div>
+              <div class="projet-body">
+                <h3 class="projet-title">Deuxième stage</h3>
+                <p class="projet-desc">
+                  Ajoute ici un second stage si nécessaire.
+                </p>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Infrastructure</span>
+                  <span class="projet-tag">Télécom</span>
+                </div>
+                <a href="#" class="btn-sm disabled">À compléter</a>
+              </div>
+            </div>
+    
+          </div>
+        </div>
       </div>
     </section>
 
