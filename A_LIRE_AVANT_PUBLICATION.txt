@@ -1,0 +1,12 @@
+PORTFOLIO BUT3 - MODIFICATIONS
+
+- Le CSS de index.html a été extrait dans le fichier séparé style.css.
+- Les attributs style statiques ont été déplacés dans des classes CSS.
+- Les CV français et anglais au format PDF sont intégrés dans « 2ème année ».
+- La section « Mes CV » affiche un aperçu intégré de chaque PDF et propose un lien pour l'ouvrir séparément.
+- L'ancien CV français au format PNG est conservé dans l'archive, mais n'est plus utilisé par la page.
+
+Publication GitHub Pages :
+- Conserver index.html, style.css et les dossiers au même niveau.
+- Vérifier que le dossier publié est bien Portfolio-main (ou déplacer son contenu à la racine du dépôt selon la configuration GitHub Pages).
+- Après publication, tester les deux aperçus PDF et leurs liens depuis le site.

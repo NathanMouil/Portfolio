@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – BUT R&T</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">R&T Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#hero" onclick="goToPage('home')">Accueil</a></li>
+    <li><a href="#competences" onclick="goToPage('home')">Compétences</a></li>
+    <li><a href="#projets" onclick="goToPage('home')">Projets</a></li>
+    <li><a href="#parcours" onclick="goToPage('home')">Parcours</a></li>
+    <li><a href="#stage" onclick="goToPage('home')">Stage</a></li>
+    <li><a href="#experiences" onclick="goToPage('home')">Expériences</a></li>
+    <li><a href="#cv" onclick="goToPage('home')">CV</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div id="page-home" class="page active">
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <div class="hero-badge fade-up">BUT Réseaux &amp; Télécommunications – 2ème année</div>
+        <h1 class="hero-title fade-up delay-1">
+          Nathan MOUILLÉ Bienvenue sur<br><span class="gradient-text">mon Portfolio</span>
+        </h1>
+        <p class="hero-sub fade-up delay-2">
+          Étudiant passionné par les réseaux, les télécommunications et le développement.
+          Découvrez mes compétences, mes projets et mon parcours.
+        </p>
+        <div class="hero-ctas fade-up delay-3">
+          <a href="#projets" class="btn btn-primary" onclick="goToPage('home')">Voir mes projets →</a>
+          <a href="#cv" class="btn btn-outline" onclick="goToPage('home')">Mon CV</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences">
+      <div class="container">
+        <p class="section-label">Formation</p>
+        <h2 class="section-title">Mes Compétences BUT R&T</h2>
+        <p class="section-desc">
+          Chaque compétence est maintenant cliquable et ouvre une page dédiée avec les projets correspondants.
+        </p>
+
+        <div class="year-tabs">
+          <button class="year-tab active" onclick="showYear(1)">1ère Année</button>
+          <button class="year-tab" onclick="showYear(2)">2ème Année</button>
+        </div>
+
+        <div class="year-panel active" id="year-1">
+          <div class="competences-grid">
+            <article class="comp-card adm" onclick="openCompetence('administrer')">
+              <div class="comp-title">Administrer</div>
+              <p class="comp-desc">
+                Configurer et gérer des équipements réseau dans un environnement simple.
+                Mise en place des services de base et maintenance d'infrastructures locales.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">Cisco IOS</span>
+                <span class="tag">Linux</span>
+                <span class="tag">DHCP / DNS</span>
+                <span class="tag">VLAN</span>
+                <span class="tag">SSH</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+
+            <article class="comp-card conn" onclick="openCompetence('connecter')">
+              <div class="comp-title">Connecter</div>
+              <p class="comp-desc">
+                Comprendre et mettre en œuvre les protocoles de communication fondamentaux,
+                le routage, l'adressage IP et l'analyse réseau.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">TCP/IP</span>
+                <span class="tag">IPv4 / IPv6</span>
+                <span class="tag">Routage statique</span>
+                <span class="tag">Fibre / Cuivre</span>
+                <span class="tag">Wireshark</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+
+            <article class="comp-card prog" onclick="openCompetence('programmer')">
+              <div class="comp-title">Programmer</div>
+              <p class="comp-desc">
+                Développer des scripts et des applications pour automatiser des tâches réseau
+                et créer des outils utiles à l'administration.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Bash</span>
+                <span class="tag">HTML / CSS</span>
+                <span class="tag">Git</span>
+                <span class="tag">Scripts réseau</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="year-panel" id="year-2">
+          <div class="year2-intro">
+            <p>
+              <strong>En 2ème année</strong>, les compétences sont approfondies dans des contextes plus complexes.
+              Clique sur une carte pour afficher une page dédiée avec les projets réalisés dans ce domaine.
+            </p>
+          </div>
+
+          <div class="competences-grid">
+            <article class="comp-card adm" onclick="openCompetence('administrer-n2')">
+              <div class="comp-title">Administrer – Niveau 2</div>
+              <p class="comp-desc">
+                Gestion d'infrastructures complexes, serveurs, virtualisation, supervision réseau
+                et haute disponibilité.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">VPN / IPSec</span>
+                <span class="tag">Firewall</span>
+                <span class="tag">Proxmox / VMware</span>
+                <span class="tag">Nagios / Zabbix</span>
+                <span class="tag">OSPF / BGP</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+
+            <article class="comp-card conn" onclick="openCompetence('connecter-n2')">
+              <div class="comp-title">Connecter – Niveau 2</div>
+              <p class="comp-desc">
+                Interconnexion avancée de réseaux, technologies WAN, QoS, ToIP et architectures
+                modernes de connectivité.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">MPLS / SD-WAN</span>
+                <span class="tag">Wi-Fi 802.11</span>
+                <span class="tag">QoS</span>
+                <span class="tag">VoIP / ToIP</span>
+                <span class="tag">5G</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+
+            <article class="comp-card prog" onclick="openCompetence('programmer-n2')">
+              <div class="comp-title">Programmer – Niveau 2</div>
+              <p class="comp-desc">
+                Automatisation, APIs, Docker, DevOps et développement d'applications réseau
+                plus avancées.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">Ansible</span>
+                <span class="tag">Python avancé</span>
+                <span class="tag">API REST</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Git / CI-CD</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+
+            <article class="comp-card adm-sec" onclick="openCompetence('administrer-sec')">
+              <div class="comp-title">Administrer un système d'information sécurisé</div>
+              <p class="comp-desc">
+                Analyse des risques, PSSI, sécurisation d'architecture et sensibilisation des utilisateurs.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">Analyse des risques</span>
+                <span class="tag">PSSI</span>
+                <span class="tag">Sécurisation</span>
+                <span class="tag">Normes</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+
+            <article class="comp-card surv-sec" onclick="openCompetence('surveiller-sec')">
+              <div class="comp-title">Surveiller un système d'information sécurisé</div>
+              <p class="comp-desc">
+                Supervision, sauvegardes, restauration, mises à jour et continuité de service.
+              </p>
+              <div class="comp-tags">
+                <span class="tag">Supervision</span>
+                <span class="tag">Sauvegarde</span>
+                <span class="tag">Restauration</span>
+                <span class="tag">PRA / PCA</span>
+              </div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="projets">
+  <div class="container">
+    <div class="toolbar">
+      <div>
+        <p class="section-label">Réalisations</p>
+        <h2 class="section-title">Mes Projets</h2>
+      </div>
+      <button class="btn btn-outline" onclick="goToPage('projets-page')">Ouvrir la page projets</button>
+    </div>
+
+    <p class="section-desc">
+      Retrouvez ici les SAE réalisées pendant ma formation. Les projets de 1ère année regroupent les SAE1 et SAE2.
+    </p>
+
+    <div class="projets-tabs">
+      <button class="projets-tab active" onclick="showProjets(1)">Projets 1ère Année</button>
+      <button class="projets-tab" onclick="showProjets(2)">Projets 2ème Année</button>
+    </div>
+
+    <!-- 1ère année -->
+    <div class="projets-panel active" id="projets-1">
+      <div class="projets-grid projets-grid-sae">
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE101</h3>
+            <p class="projet-desc">
+              Le but de ce projet était d'étudier les risques sur internet, qu'ils soient humains ou informatiques.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Documentation</span>
+              <span class="projet-tag">Recherche d'information</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/Diapo.pptx" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE102</h3>
+            <p class="projet-desc">
+              Dans ce projet, nous devions créer un réseau dans une succursale avec plusieurs commutateurs et VLAN. Le but final était de comprendre la configuration des équipements réseau.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Cisco</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/SAE1.02_CahierDesCharges-1.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE103</h3>
+            <p class="projet-desc">
+              Nous devions installer notre propre réseau Wi-Fi puis effectuer des mesures de qualité dans le bâtiment.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Cisco</span>
+              <span class="projet-tag">Packet Tracer</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/rapportsae13.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE104</h3>
+            <p class="projet-desc">
+              J'ai créé un site web qui devait afficher mon CV.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">CV</span>
+              <span class="projet-tag">HTML</span>
+              <span class="projet-tag">Site web</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/SAE104.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE105</h3>
+            <p class="projet-desc">
+              Nous devions créer un outil de reporting pour trouver et classer les fichiers par taille, puis permettre leur suppression.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">Documentation</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/Sujet%20SAE%20105-2.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE201</h3>
+            <p class="projet-desc">
+              Le but de ce projet était de créer un petit réseau sur le logiciel GNS3.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">GNS3</span>
+              <span class="projet-tag">Réseau</span>
+            </div>
+            <a href="#" class="btn-sm disabled">À venir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE202</h3>
+            <p class="projet-desc">
+              Nous devions mettre en place une web radio sur une carte Arduino ESP32 pour écouter la radio.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Arduino</span>
+              <span class="projet-tag">Codage</span>
+              <span class="projet-tag">Documentation</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/SAE202-Web_Radio-2.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE203</h3>
+            <p class="projet-desc">
+              Nous devions mettre en place un serveur, une base de données et un site web permettant aux professeurs de gérer et ajouter des notes.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">Site web</span>
+              <span class="projet-tag">SQL</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/gestion_notes_site.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet intégratif</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE204</h3>
+            <p class="projet-desc">
+              Dans ce projet, nous devions utiliser toutes les compétences de la première année avec un réseau interne, un routeur, un switch, un serveur, des clients et des téléphones SIP.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Site web</span>
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">MQTT</span>
+              <span class="projet-tag">SQL</span>
+              <span class="projet-tag">Documentation</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/1er%20ann%C3%A9e/projet_integratif-main.zip" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2ème année -->
+    <div class="projets-panel" id="projets-2">
+      <div class="projets-grid projets-grid-sae">
+
+        <div class="projet-card">
+          <div class="projet-banner pb-2">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE301 - Prise wifi intelligente</h3>
+            <p class="projet-desc">
+              Lors de ce projet nous avons conçu une prise connecté qui devait pouvoir être contrôlée à distance et avoir un affichage dynamique.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Arduino</span>
+              <span class="projet-tag">Django</span>
+              <span class="projet-tag">Rasberry Pi</span>
+              <span class="projet-tag">Brocker</span>
+              <span class="projet-tag">App Creator</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/tree/main/2%C3%A8me%20ann%C3%A9e" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-3">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE302 - Applications communicantes</h3>
+            <p class="projet-desc">
+              Je devais mettre en place des machines virtuels qui pouvaient envoyé un message via les sockets et que le message soit cryptée tant qu'il n'arrive pas au client.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Sockets</span>
+              <span class="projet-tag">Python</span>
+              <span class="projet-tag">Linux</span>
+              <span class="projet-tag">Machine Virtuel</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/Fiche%20individuelle%20SAE302.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-3">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE303 - Réseau multi-sites</h3>
+            <p class="projet-desc">
+              Nous avions mis en place un réseau entre plusieurs site communicant avec BGP et plusieurs service disponible sur windows serveur.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">AD</span>
+              <span class="projet-tag">Windows serveur</span>
+              <span class="projet-tag">Supervision</span>
+              <span class="projet-tag">BGP</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/Rapport%20Mise%20en%20place%20des%20service.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-3">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE304 - Pentesting</h3>
+            <p class="projet-desc">
+              J'ai utilisé un logiciel pour apprendre de multiple nouvelle compétence sur le pentesting et le réseau.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Rootme</span>
+              <span class="projet-tag">Réseau</span>
+              <span class="projet-tag">Pentesting</span>
+            </div>
+            <a href="" class="btn-sm" target="_blank" rel="noopener noreferrer">À venir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-3">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE401 - Sécurisé un réseau d'information</h3>
+            <p class="projet-desc">
+              Créer un réseau lié avec des VMs sur Proxmox en lient plusieurs services sécurisé.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">Proxmox</span>
+              <span class="projet-tag">LDAPS</span>
+              <span class="projet-tag">OPENSSL</span>
+              <span class="projet-tag">VPN</span>
+              <span class="projet-tag">BASTION</span>
+              <span class="projet-tag">WEB</span>
+              <span class="projet-tag">NFS</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+          </div>
+        </div>
+
+        <div class="projet-card">
+          <div class="projet-banner pb-1">Projet</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE402 - Portfolio</h3>
+            <p class="projet-desc">
+              Crée un site web pour présenté les multiples compétences apprise durant le parcours scolaires.
+            </p>
+          </div>
+          <div class="projet-footer">
+            <div class="projet-tags">
+              <span class="projet-tag">WEB</span>
+            </div>
+            <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">À venir</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="parcours">
+      <div class="container">
+        <p class="section-label">Parcours</p>
+        <h2 class="section-title">Mon Parcours Scolaire</h2>
+        <p class="section-desc">
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2023 – Aujourd’hui</div>
+            <div class="timeline-title">BUT Réseaux &amp; Télécommunications</div>
+            <div class="timeline-loc">IUT de colmar - BUT Réseau et Télécommunications</div>
+            <p class="timeline-desc">
+              Formation orientée réseaux, télécommunications et développement. Travaux pratiques, SAE et projets
+              en groupe autour de l’administration, de l’interconnexion et de la programmation réseau.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2020 – 2023</div>
+            <div class="timeline-title">Baccalauréat Technique</div>
+            <div class="timeline-loc">Lycée Schwilgué</div>
+            <p class="timeline-desc">
+              Formation orientée technique, Arduino et réseau, travaux pratique, projets en groupe sur des solutions techniques avec Arduino.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="toolbar">
+          <div>
+            <p class="section-label">Parcours professionnel</p>
+            <h2 class="section-title">Expérience pro & Stage</h2>
+          </div>
+        </div>
+    
+        <p class="section-desc">
+        </p>
+    
+        <div class="projets-tabs">
+          <button class="projets-tab active" onclick="showExperience(1)">Expérience pro</button>
+          <button class="projets-tab" onclick="showExperience(2)">Stage</button>
+        </div>
+    
+        <!-- Expérience pro -->
+        <div class="projets-panel active" id="experience-1">
+          <div class="projets-grid projets-grid-sae">
+    
+            <div class="projet-card">
+              <div class="projet-banner pb-1">Expérience</div>
+              <div class="projet-body">
+                <h3 class="projet-title">1ère expérience</h3>
+                <p class="projet-desc">
+                  J'était chargé de récéption pour les canoës du Ried.
+                </p>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Communication</span>
+                </div>
+                <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">À venir</a>
+              </div>
+            </div>
+    
+            <div class="projet-card">
+              <div class="projet-banner pb-2">Expérience</div>
+              <div class="projet-body">
+                <h3 class="projet-title">Deuxième expérience</h3>
+                <p class="projet-desc">
+                  J'ai travaillé deux été à Cigoland en tant qu'Animateur
+                </p>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Social</span>
+                  <span class="projet-tag">Communication</span>
+                </div>
+                <a href="https://github.com/NathanMouil/Portfolio" class="btn-sm" target="_blank" rel="noopener noreferrer">À venir</a>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+    
+        <!-- Stage -->
+        <div class="projets-panel" id="experience-2">
+          <div class="projets-grid projets-grid-sae">
+    
+            <div class="projet-card stage-card">
+              <div class="projet-banner pb-3">Stage</div>
+              <div class="projet-body">
+                <h3 class="projet-title">Technicien chez Quonex Alsatel</h3>
+                <p class="projet-desc">
+                  Décris ici ton stage, l’entreprise, les missions confiées, les technologies utilisées
+                  et ce que tu as appris.
+                </p>
+                <div class="stage-image">
+                <img src="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/Poster.png?raw=true" alt="Poster sur stage" />
+              </div>
+              </div>
+              <div class="projet-footer">
+                <div class="projet-tags">
+                  <span class="projet-tag">Stage</span>
+                  <span class="projet-tag">Entreprise</span>
+                  <span class="projet-tag">Téléphonie</span>
+                </div>
+                <a href="https://github.com/NathanMouil/Portfolio/blob/main/2%C3%A8me%20ann%C3%A9e/Poster.png" class="btn-sm" target="_blank" rel="noopener noreferrer">Voir</a>
+              </div>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="container">
+        <p class="section-label centered-text">Curriculum Vitae</p>
+        <h2 class="section-title centered-text">Mes CV</h2>
+        <p class="section-desc centered-narrow">
+          Retrouvez mes CV en français et en anglais.
+        </p>
+        <div class="cv-columns">
+          <div class="cv-card">
+            <div class="cv-kicker">CV en français</div>
+            <h3>Mon CV français</h3>
+            <div class="cv-pdf-preview">
+              <iframe src="2ème%20année/CV%20Nathan%20MOUILLE.pdf" title="Aperçu du CV en français"></iframe>
+            </div>
+            <p>Version française de mon CV au format PDF.</p>
+            <div class="cv-input-row">
+              <a href="2ème%20année/CV%20Nathan%20MOUILLE.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">
+                Consulter le CV français →
+              </a>
+            </div>
+          </div>
+
+          <div class="cv-card">
+            <div class="cv-kicker">CV in English</div>
+            <h3>My English CV</h3>
+            <div class="cv-pdf-preview">
+              <iframe src="2ème%20année/CV%20anglais%20Nathan%20MOUILLE.pdf" title="English CV preview"></iframe>
+            </div>
+            <p>English version of my CV in PDF format.</p>
+            <div class="cv-input-row">
+              <a href="2ème%20année/CV%20anglais%20Nathan%20MOUILLE.pdf" class="btn-sm" target="_blank" rel="noopener noreferrer">
+                View English CV →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p>Portfolio BUT Réseaux &amp; Télécoms — 2ème année &nbsp;·&nbsp; Fait avec <span>♥</span> et du HTML</p>
+</footer>
+
+<script>
+  const competenceProjects = {
+    'administrer': {
+      title: 'Administrer',
+      projects: [
+        {
+          banner: 'Services réseau',
+          title: 'Configuration d\'une infrastructure locale',
+          desc: 'Mise en place de DHCP, DNS, VLAN et accès SSH sur un environnement simple de TP.',
+          tags: ['Cisco IOS', 'VLAN', 'DHCP', 'Linux']
+        },
+        {
+          banner: 'Administration système',
+          title: 'Déploiement Linux de base',
+          desc: 'Installation, configuration et maintenance d\'un poste ou serveur Linux pour les besoins réseau.',
+          tags: ['Linux', 'SSH', 'Services']
+        }
+      ]
+    },
+    'connecter': {
+      title: 'Connecter',
+      projects: [
+        {
+          banner: 'Adressage IP',
+          title: 'Plan d\'adressage et routage statique',
+          desc: 'Création d\'un plan IPv4/IPv6 et mise en œuvre du routage statique entre plusieurs segments.',
+          tags: ['IPv4', 'IPv6', 'Routage', 'TCP/IP']
+        },
+        {
+          banner: 'Analyse réseau',
+          title: 'Capture et analyse de trames',
+          desc: 'Utilisation de Wireshark pour analyser les échanges et comprendre les protocoles réseau.',
+          tags: ['Wireshark', 'OSI', 'TCP/IP']
+        }
+      ]
+    },
+    'programmer': {
+      title: 'Programmer',
+      projects: [
+        {
+          banner: 'Automatisation',
+          title: 'Scripts Python pour tâches réseau',
+          desc: 'Développement de scripts pour automatiser des opérations simples d\'administration ou de supervision.',
+          tags: ['Python', 'Bash', 'Automatisation']
+        },
+        {
+          banner: 'Développement web',
+          title: 'Mini interface HTML/CSS',
+          desc: 'Création d\'une interface simple pour présenter un projet ou un service technique.',
+          tags: ['HTML', 'CSS', 'Git']
+        }
+      ]
+    },
+    'administrer-n2': {
+      title: 'Administrer – Niveau 2',
+      projects: [
+        {
+          banner: 'Virtualisation',
+          title: 'Plateforme multi-services virtualisée',
+          desc: 'Déploiement d\'environnements virtualisés avec supervision et services réseau avancés.',
+          tags: ['VMware', 'Proxmox', 'Supervision']
+        },
+        {
+          banner: 'Routage dynamique',
+          title: 'Architecture multi-sites',
+          desc: 'Mise en place d\'une interconnexion avec OSPF ou BGP et politiques d\'administration réseau.',
+          tags: ['OSPF', 'BGP', 'VPN', 'Firewall']
+        }
+      ]
+    },
+    'connecter-n2': {
+      title: 'Connecter – Niveau 2',
+      projects: [
+        {
+          banner: 'WAN',
+          title: 'Interconnexion avancée de sites',
+          desc: 'Étude et mise en place de scénarios WAN avec QoS et segmentation des flux.',
+          tags: ['QoS', 'MPLS', 'SD-WAN']
+        },
+        {
+          banner: 'Télécoms',
+          title: 'Projet ToIP ou Wi-Fi avancé',
+          desc: 'Travail autour de la téléphonie IP, du sans-fil ou des infrastructures modernes de connectivité.',
+          tags: ['ToIP', 'Wi-Fi', '5G']
+        }
+      ]
+    },
+    'programmer-n2': {
+      title: 'Programmer – Niveau 2',
+      projects: [
+        {
+          banner: 'Développement',
+          title: 'Application réseau avancée',
+          desc: 'Développement d\'une application intégrant API, logique métier et échanges réseau.',
+          tags: ['Python', 'API REST', 'SQL']
+        },
+        {
+          banner: 'DevOps',
+          title: 'Automatisation d\'infrastructure',
+          desc: 'Utilisation d\'Ansible, Docker et Git pour industrialiser le déploiement et les tests.',
+          tags: ['Ansible', 'Docker', 'CI/CD']
+        }
+      ]
+    },
+    'administrer-sec': {
+      title: 'Administrer un système d\'information sécurisé',
+      projects: [
+        {
+          banner: 'Sécurité',
+          title: 'Étude de risques et PSSI',
+          desc: 'Identification des risques, proposition de mesures de protection et structuration d\'une politique de sécurité.',
+          tags: ['PSSI', 'Analyse des risques', 'Normes']
+        }
+      ]
+    },
+    'surveiller-sec': {
+      title: 'Surveiller un système d\'information sécurisé',
+      projects: [
+        {
+          banner: 'Continuité',
+          title: 'Procédures de supervision et sauvegarde',
+          desc: 'Mise en place de procédures de surveillance, sauvegarde et restauration du SI.',
+          tags: ['Supervision', 'Sauvegarde', 'PRA', 'PCA']
+        }
+      ]
+    }
+  };
+
+  function showYear(n) {
+    document.querySelectorAll('.year-tab').forEach((t, i) => t.classList.toggle('active', i === n - 1));
+    document.querySelectorAll('#competences .year-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
+  }
+
+  function showProjets(n) {
+    document.querySelectorAll('.projets-tab').forEach((t, i) => t.classList.toggle('active', i === n - 1));
+    document.querySelectorAll('#projets .projets-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
+  }
+  
+  function showExperience(n) {
+    document.querySelectorAll('#experience .projets-tab').forEach((t, i) => {
+      t.classList.toggle('active', i === n - 1);
+    });
+
+    document.querySelectorAll('#experience .projets-panel').forEach((p, i) => {
+      p.classList.toggle('active', i === n - 1);
+    });
+  }
+
+
+  function goToPage(pageName) {
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    document.getElementById('page-' + pageName).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function openCompetence(key) {
+    const competence = competenceProjects[key];
+    if (!competence) return;
+
+    document.getElementById('competence-title-main').textContent = competence.title;
+    const container = document.getElementById('competence-projects');
+    container.innerHTML = competence.projects.map((project, index) => `
+      <article class="detail-card fade-up delay-${index % 3}">
+        <div class="detail-banner ${index % 3 === 0 ? 'pb-1' : index % 3 === 1 ? 'pb-2' : 'pb-3'}">${project.banner}</div>
+        <div class="detail-body">
+          <h3 class="detail-title">${project.title}</h3>
+          <p class="detail-desc">${project.desc}</p>
+          <div class="detail-tags">
+            ${project.tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+        <div class="detail-footer">
+          <span class="helper">Projet lié à la compétence sélectionnée</span>
+          <button class="btn-sm" onclick="goToPage('projets-page')">Ajouter un projet similaire</button>
+        </div>
+      </article>
+    `).join('');
+
+    goToPage('competence');
+    observeAnimatedCards();
+  }
+
+  function updateCvBtn(suffix) {
+    const val = document.getElementById('cv-link-input-' + suffix).value.trim();
+    const btn = document.getElementById('cv-btn-' + suffix);
+    if (val) {
+      btn.href = val;
+      btn.style.pointerEvents = 'auto';
+      btn.style.opacity = '1';
+    } else {
+      btn.href = '#';
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '.5';
+    }
+  }
+
+  let selectedProjectFile = null;
+  let selectedProjectFileUrl = '';
+
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' octets';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' Ko';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' Mo';
+  }
+
+  function handleProjectFile(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('project-file-preview');
+
+    if (!file) {
+      selectedProjectFile = null;
+      selectedProjectFileUrl = '';
+      preview.classList.remove('active');
+      preview.innerHTML = '';
+      return;
+    }
+
+    selectedProjectFile = file;
+    if (selectedProjectFileUrl) URL.revokeObjectURL(selectedProjectFileUrl);
+    selectedProjectFileUrl = URL.createObjectURL(file);
+
+    const isImage = file.type.startsWith('image/');
+    preview.classList.add('active');
+    preview.innerHTML = `
+      <div class="file-meta">
+        <span class="file-pill">Fichier sélectionné</span>
+        <span class="helper">${file.name}</span>
+        <span class="helper">${formatFileSize(file.size)}</span>
+      </div>
+      ${isImage ? `<img src="${selectedProjectFileUrl}" alt="Aperçu du fichier sélectionné">` : `<p class="helper helper-top-space">Aperçu non disponible pour ce type de fichier, mais il sera attaché à la carte du projet.</p>`}
+    `;
+  }
+
+  function addProjectCard() {
+    const title = document.getElementById('project-title').value.trim();
+    const year = document.getElementById('project-year').value;
+    const category = document.getElementById('project-category').value.trim();
+    const tech = document.getElementById('project-tech').value.trim();
+    const desc = document.getElementById('project-desc').value.trim();
+    const status = document.getElementById('project-status');
+    const list = document.getElementById('custom-projects-list');
+
+    if (!title || !desc) {
+      status.textContent = 'Renseigne au minimum le titre et la description du projet.';
+      status.style.color = '#f59e0b';
+      return;
+    }
+
+    const tags = tech ? tech.split(',').map(t => t.trim()).filter(Boolean) : [];
+    const bannerClass = list.children.length % 3 === 0 ? 'pb-1' : list.children.length % 3 === 1 ? 'pb-2' : 'pb-3';
+    const fileBlock = selectedProjectFile ? `
+      <div class="project-illustration">
+        ${selectedProjectFile.type.startsWith('image/') ? `<img src="${selectedProjectFileUrl}" alt="Illustration du projet ${title}">` : ''}
+        <a class="project-file-link" href="${selectedProjectFileUrl}" download="${selectedProjectFile.name}" target="_blank" rel="noopener noreferrer">Ouvrir le fichier : ${selectedProjectFile.name}</a>
+      </div>
+    ` : '';
+
+    const card = document.createElement('article');
+    card.className = 'detail-card fade-up';
+    card.innerHTML = `
+      <div class="detail-banner ${bannerClass}">${category || 'Projet ajouté'}</div>
+      <div class="detail-body">
+        <h3 class="detail-title">${title}</h3>
+        <p class="detail-desc">${desc}</p>
+        <div class="detail-tags">
+          <span class="detail-tag">${year}</span>
+          ${tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
+        </div>
+        ${fileBlock}
+      </div>
+    `;
+
+    list.prepend(card);
+    status.textContent = selectedProjectFile
+      ? "Projet ajouté avec succès avec son fichier d'illustration."
+      : 'Projet ajouté avec succès dans la page dédiée.';
+    status.style.color = 'var(--success)';
+
+    document.getElementById('project-title').value = '';
+    document.getElementById('project-category').value = '';
+    document.getElementById('project-tech').value = '';
+    document.getElementById('project-desc').value = '';
+    document.getElementById('project-file').value = '';
+    document.getElementById('project-file-preview').classList.remove('active');
+    document.getElementById('project-file-preview').innerHTML = '';
+    selectedProjectFile = null;
+    selectedProjectFileUrl = '';
+
+    observer.observe(card);
+  }
+
+  function generateStageReport() {
+    const title = document.getElementById('stage-title').value.trim();
+    const company = document.getElementById('stage-company').value.trim();
+    const location = document.getElementById('stage-location').value.trim();
+    const dates = document.getElementById('stage-dates').value.trim();
+    const context = document.getElementById('stage-context').value.trim();
+    const missions = document.getElementById('stage-missions').value.trim();
+    const skills = document.getElementById('stage-skills').value.trim();
+    const bilan = document.getElementById('stage-bilan').value.trim();
+    const link = document.getElementById('stage-link').value.trim();
+    const status = document.getElementById('stage-status');
+    const container = document.getElementById('stage-report-display');
+
+    if (!title || !company) {
+      status.textContent = 'Renseigne au minimum le titre du stage et l\'entreprise.';
+      status.style.color = '#f59e0b';
+      return;
+    }
+
+    const tags = skills ? skills.split(',').map(s => s.trim()).filter(Boolean) : [];
+
+    container.innerHTML = `
+      <article class="detail-card fade-up full-grid-column">
+        <div class="detail-banner pb-1">${dates || 'Stage'}</div>
+        <div class="detail-body">
+          <h3 class="detail-title">${title} — ${company}</h3>
+          ${location ? `<p class="helper helper-bottom-large">${location}</p>` : ''}
+          ${context ? `<p class="detail-desc"><strong>Contexte :</strong> ${context}</p>` : ''}
+          ${missions ? `<p class="detail-desc"><strong>Missions :</strong> ${missions}</p>` : ''}
+          ${bilan ? `<p class="detail-desc"><strong>Bilan :</strong> ${bilan}</p>` : ''}
+          <div class="detail-tags">
+            ${tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+        ${link ? `<div class="detail-footer"><span class="helper">Rapport complet disponible</span><a class="btn-sm" href="${link}" target="_blank" rel="noopener noreferrer">Voir le rapport →</a></div>` : ''}
+      </article>
+    `;
+
+    status.textContent = 'Ta fiche de stage a été générée avec succès.';
+    status.style.color = 'var(--success)';
+    observeAnimatedCards();
+  }
+
+  function addExperience() {
+    const title = document.getElementById('exp-title').value.trim();
+    const company = document.getElementById('exp-company').value.trim();
+    const location = document.getElementById('exp-location').value.trim();
+    const type = document.getElementById('exp-type').value;
+    const dates = document.getElementById('exp-dates').value.trim();
+    const missions = document.getElementById('exp-missions').value.trim();
+    const skills = document.getElementById('exp-skills').value.trim();
+    const status = document.getElementById('exp-status');
+    const list = document.getElementById('experiences-list');
+
+    if (!title || !company) {
+      status.textContent = 'Renseigne au minimum le poste et l\'entreprise.';
+      status.style.color = '#f59e0b';
+      return;
+    }
+
+    const tags = skills ? skills.split(',').map(s => s.trim()).filter(Boolean) : [];
+    const bannerClass = list.children.length % 3 === 0 ? 'pb-1' : list.children.length % 3 === 1 ? 'pb-2' : 'pb-3';
+
+    const card = document.createElement('article');
+    card.className = 'detail-card fade-up';
+    card.innerHTML = `
+      <div class="detail-banner ${bannerClass}">${type}${dates ? ' · ' + dates : ''}</div>
+      <div class="detail-body">
+        <h3 class="detail-title">${title} — ${company}</h3>
+        ${location ? `<p class="helper helper-bottom-medium">${location}</p>` : ''}
+        <p class="detail-desc">${missions}</p>
+        <div class="detail-tags">
+          ${tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}
+        </div>
+      </div>
+    `;
+
+    list.prepend(card);
+    status.textContent = 'Expérience ajoutée avec succès.';
+    status.style.color = 'var(--success)';
+
+    document.getElementById('exp-title').value = '';
+    document.getElementById('exp-company').value = '';
+    document.getElementById('exp-location').value = '';
+    document.getElementById('exp-dates').value = '';
+    document.getElementById('exp-missions').value = '';
+    document.getElementById('exp-skills').value = '';
+
+    observer.observe(card);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  function observeAnimatedCards() {
+    document.querySelectorAll('.comp-card, .projet-card, .cv-card, .timeline-item, .detail-card, .project-manager-card').forEach(el => {
+      if (!el.dataset.observed) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity .6s ease, transform .6s ease';
+        observer.observe(el);
+        el.dataset.observed = 'true';
+      }
+    });
+  }
+
+  observeAnimatedCards();
+</script>
+
+</body>
+</html>
