@@ -855,3 +855,47 @@
   height: 100%;
   border: 0;
 }
+
+
+/* Section de compétences et projets de 3ème année */
+.year2-intro { margin-bottom: 1.5rem; }
+.projet-card-clickable { cursor: pointer; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.projet-card-clickable:hover, .projet-card-clickable:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(168, 85, 247, .65);
+  box-shadow: 0 12px 35px rgba(124, 58, 237, .22);
+  outline: none;
+}
+.projet-card-clickable .projet-footer .btn-sm { cursor: pointer; }
+
+/* Fenêtres de présentation des SAE */
+body.modal-open { overflow: hidden; }
+.project-modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1.25rem; }
+.project-modal.active { display: flex; }
+.project-modal-backdrop { position: absolute; inset: 0; background: rgba(4, 3, 12, .82); backdrop-filter: blur(8px); }
+.project-modal-dialog {
+  position: relative; z-index: 1; width: min(760px, 100%); max-height: min(88vh, 900px); overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid rgba(168, 85, 247, .35); border-radius: 22px;
+  background: linear-gradient(145deg, rgba(28, 19, 48, .98), rgba(12, 11, 25, .99));
+  box-shadow: 0 25px 90px rgba(0, 0, 0, .55), 0 0 45px rgba(124, 58, 237, .18);
+  animation: modal-enter .22s ease-out;
+}
+@keyframes modal-enter { from { opacity: 0; transform: translateY(16px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.project-modal-close {
+  position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border: 1px solid var(--border);
+  border-radius: 12px; color: #fff; background: rgba(255,255,255,.06); font-size: 1.7rem; line-height: 1; cursor: pointer;
+}
+.project-modal-dialog .section-title { padding-right: 2.5rem; margin-bottom: 1.25rem; }
+.project-modal-description { color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+.project-modal-dialog h3 { font-family: 'Syne', sans-serif; margin-bottom: .75rem; }
+.project-modal-points { padding-left: 1.25rem; margin: 0 0 1.5rem; color: var(--muted); line-height: 1.9; }
+.project-modal-points li { padding-left: .25rem; margin-bottom: .35rem; }
+.project-modal-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+
+/* Les CV ne sont plus intégrés en iframe : aucun PDF n'est chargé à l'ouverture du portfolio. */
+.cv-pdf-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8rem; color: var(--muted); }
+.cv-pdf-icon { display: grid; place-items: center; width: 76px; height: 90px; border-radius: 10px; border: 1px solid rgba(168,85,247,.5); background: rgba(124,58,237,.13); color: #d8b4fe; font: 800 1.25rem 'Syne', sans-serif; letter-spacing: .06em; }
+@media (max-width: 600px) {
+  .project-modal { padding: .65rem; }
+  .project-modal-dialog { max-height: 94vh; border-radius: 16px; }
+}
