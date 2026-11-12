@@ -28,7 +28,7 @@
       <div class="hero-bg"></div>
       <div class="hero-grid"></div>
       <div class="hero-content">
-        <div class="hero-badge fade-up">BUT Réseaux &amp; Télécommunications – 2ème année</div>
+        <div class="hero-badge fade-up">BUT Réseaux &amp; Télécommunications – 3ème année (2026–2027)</div>
         <h1 class="hero-title fade-up delay-1">
           Nathan MOUILLÉ Bienvenue sur<br><span class="gradient-text">mon Portfolio</span>
         </h1>
@@ -54,6 +54,7 @@
         <div class="year-tabs">
           <button class="year-tab active" onclick="showYear(1)">1ère Année</button>
           <button class="year-tab" onclick="showYear(2)">2ème Année</button>
+          <button class="year-tab" onclick="showYear(3)">3ème Année</button>
         </div>
 
         <div class="year-panel active" id="year-1">
@@ -194,6 +195,36 @@
             </article>
           </div>
         </div>
+
+        <div class="year-panel" id="year-3">
+          <div class="year2-intro">
+            <p>
+              <strong>En 3ème année (2026–2027)</strong>, je mobilise les compétences acquises sur des projets
+              complets mêlant objets connectés, développement applicatif et cybersécurité.
+              Clique sur une carte pour découvrir les réalisations associées.
+            </p>
+          </div>
+          <div class="competences-grid">
+            <article class="comp-card conn" onclick="openCompetence('connecter-n3')">
+              <div class="comp-title">Connecter des objets et systèmes communicants</div>
+              <p class="comp-desc">Concevoir une chaîne de communication IoT, de l'acquisition GNSS à la transmission longue portée via LoRaWAN.</p>
+              <div class="comp-tags"><span class="tag">LoPy4</span><span class="tag">GNSS</span><span class="tag">LoRaWAN</span><span class="tag">TTN</span></div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+            <article class="comp-card prog" onclick="openCompetence('programmer-n3')">
+              <div class="comp-title">Programmer et développer des applications</div>
+              <p class="comp-desc">Développer une application web complète, gérer les médias, les publications et les interactions utilisateurs.</p>
+              <div class="comp-tags"><span class="tag">Node.js</span><span class="tag">JavaScript</span><span class="tag">SQLite</span><span class="tag">HTML / CSS</span></div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+            <article class="comp-card adm-sec" onclick="openCompetence('securiser-n3')">
+              <div class="comp-title">Administrer et sécuriser un système d'information</div>
+              <p class="comp-desc">Analyser les risques d'une organisation et construire des recommandations de sécurité à partir de référentiels.</p>
+              <div class="comp-tags"><span class="tag">MEHARI</span><span class="tag">EBIOS RM</span><span class="tag">ISO 27001</span><span class="tag">NIST</span></div>
+              <span class="card-link">Voir les projets associés →</span>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -214,6 +245,7 @@
     <div class="projets-tabs">
       <button class="projets-tab active" onclick="showProjets(1)">Projets 1ère Année</button>
       <button class="projets-tab" onclick="showProjets(2)">Projets 2ème Année</button>
+      <button class="projets-tab" onclick="showProjets(3)">Projets 3ème Année</button>
     </div>
 
     <!-- 1ère année -->
@@ -506,6 +538,29 @@
 
       </div>
     </div>
+
+    <!-- 3ème année -->
+    <div class="projets-panel" id="projets-3">
+      <div class="projets-grid projets-grid-sae">
+        <article class="projet-card projet-card-clickable" role="button" tabindex="0" onclick="openProjectModal('sae501')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectModal('sae501')}">
+          <div class="projet-banner pb-1">IoT · LoRaWAN</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE501 – Suivi de véhicule par GNSS et LoRaWAN</h3>
+            <p class="projet-desc">Conception d'un tracker embarqué avec Pycom LoPy4 et Pytrack : acquisition de coordonnées GNSS, transmission LoRaWAN via The Things Network et visualisation des positions.</p>
+          </div>
+          <div class="projet-footer"><div class="projet-tags"><span class="projet-tag">Pycom</span><span class="projet-tag">GNSS</span><span class="projet-tag">LoRaWAN</span><span class="projet-tag">TTN</span></div><button class="btn-sm" type="button" onclick="event.stopPropagation();openProjectModal('sae501')">Découvrir</button></div>
+        </article>
+
+        <article class="projet-card projet-card-clickable" role="button" tabindex="0" onclick="openProjectModal('sae502')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProjectModal('sae502')}">
+          <div class="projet-banner pb-2">Développement web</div>
+          <div class="projet-body">
+            <h3 class="projet-title">SAE502 – Pixora, plateforme de publication</h3>
+            <p class="projet-desc">Développement d'une application web de partage de photos et vidéos : publication, édition des médias, gestion des légendes et commentaires, profils et fil d'actualité.</p>
+          </div>
+          <div class="projet-footer"><div class="projet-tags"><span class="projet-tag">Node.js</span><span class="projet-tag">JavaScript</span><span class="projet-tag">SQLite</span><span class="projet-tag">Web</span></div><button class="btn-sm" type="button" onclick="event.stopPropagation();openProjectModal('sae502')">Découvrir</button></div>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -518,7 +573,7 @@
 
         <div class="timeline">
           <div class="timeline-item">
-            <div class="timeline-year">2023 – Aujourd’hui</div>
+            <div class="timeline-year">2023 – 2027</div>
             <div class="timeline-title">BUT Réseaux &amp; Télécommunications</div>
             <div class="timeline-loc">IUT de colmar - BUT Réseau et Télécommunications</div>
             <p class="timeline-desc">
@@ -637,8 +692,9 @@
           <div class="cv-card">
             <div class="cv-kicker">CV en français</div>
             <h3>Mon CV français</h3>
-            <div class="cv-pdf-preview">
-              <iframe src="2ème%20année/CV%20Nathan%20MOUILLE.pdf" title="Aperçu du CV en français"></iframe>
+            <div class="cv-pdf-preview cv-pdf-placeholder">
+              <span class="cv-pdf-icon">PDF</span>
+              <span>Document disponible à l'ouverture</span>
             </div>
             <p>Version française de mon CV au format PDF.</p>
             <div class="cv-input-row">
@@ -651,8 +707,9 @@
           <div class="cv-card">
             <div class="cv-kicker">CV in English</div>
             <h3>My English CV</h3>
-            <div class="cv-pdf-preview">
-              <iframe src="2ème%20année/CV%20anglais%20Nathan%20MOUILLE.pdf" title="English CV preview"></iframe>
+            <div class="cv-pdf-preview cv-pdf-placeholder">
+              <span class="cv-pdf-icon">PDF</span>
+              <span>Document available when opened</span>
             </div>
             <p>English version of my CV in PDF format.</p>
             <div class="cv-input-row">
@@ -667,8 +724,19 @@
   </div>
 </main>
 
+<div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+  <div class="project-modal-backdrop" onclick="closeProjectModal()"></div>
+  <div class="project-modal-dialog">
+    <button class="project-modal-close" type="button" aria-label="Fermer" onclick="closeProjectModal()">×</button>
+    <p class="section-label" id="project-modal-kicker">Projet de 3ème année</p>
+    <h2 class="section-title" id="project-modal-title"></h2>
+    <div id="project-modal-content"></div>
+    <div class="project-modal-actions" id="project-modal-actions"></div>
+  </div>
+</div>
+
 <footer>
-  <p>Portfolio BUT Réseaux &amp; Télécoms — 2ème année &nbsp;·&nbsp; Fait avec <span>♥</span> et du HTML</p>
+  <p>Portfolio BUT Réseaux &amp; Télécoms — 3ème année (2026–2027) &nbsp;·&nbsp; Fait avec <span>♥</span> et du HTML</p>
 </footer>
 
 <script>
@@ -796,8 +864,83 @@
           tags: ['Supervision', 'Sauvegarde', 'PRA', 'PCA']
         }
       ]
+    },
+    'connecter-n3': {
+      title: 'Connecter des objets et systèmes communicants',
+      projects: [
+        { banner: 'SAE501 · IoT', title: 'Suivi de véhicule par GNSS et LoRaWAN', desc: 'Acquisition des coordonnées avec le module GNSS du Pytrack, traitement sur LoPy4 et transmission des positions via LoRaWAN et The Things Network.', tags: ['LoPy4', 'Pytrack 2.0', 'GNSS', 'LoRaWAN', 'TTN'] }
+      ]
+    },
+    'programmer-n3': {
+      title: 'Programmer et développer des applications',
+      projects: [
+        { banner: 'SAE502 · Pixora', title: 'Plateforme web de publication multimédia', desc: 'Développement d’une application de partage de photos et vidéos avec gestion des publications, édition des médias, légendes, commentaires et profils.', tags: ['Node.js', 'Express', 'SQLite', 'JavaScript', 'HTML / CSS'] }
+      ]
+    },
+    'securiser-n3': {
+      title: 'Administrer et sécuriser un système d’information',
+      projects: [
+        { banner: 'Analyse de risques', title: 'Étude de sécurité de l’organisation AFN', desc: 'Analyse des biens supports, événements redoutés et scénarios de risque, puis proposition d’une feuille de route de sécurité.', tags: ['MEHARI', 'EBIOS RM', 'ISO 27001', 'NIST', 'PSSI'] }
+      ]
     }
   };
+
+  const projectModalData = {
+    sae501: {
+      kicker: 'SAE501 · 3ème année · 2026–2027',
+      title: 'Suivi de véhicule par GNSS et LoRaWAN',
+      description: 'Réalisation d’un tracker embarqué à partir d’une carte Pycom LoPy4 et d’un Pytrack 2.0. Le système récupère les coordonnées GNSS, transmet les positions par LoRaWAN vers The Things Network et permet leur exploitation côté serveur pour afficher le suivi du véhicule.',
+      points: ['Acquisition GNSS et lecture des coordonnées latitude / longitude', 'Communication LoRaWAN et intégration avec The Things Network', 'Optimisation des échanges et réflexion sur la consommation énergétique', 'Réveil sur mouvement et fonctionnement basse consommation'],
+      tags: ['Pycom LoPy4', 'Pytrack 2.0', 'MicroPython', 'GNSS', 'LoRaWAN', 'TTN'],
+      link: '3ème%20ann%C3%A9e/Projet_LoraWan_SAE501_FA%20-%202026-27.pdf',
+      linkLabel: 'Consulter le dossier SAE501'
+    },
+    sae502: {
+      kicker: 'SAE502 · 3ème année · 2026–2027',
+      title: 'Pixora – Plateforme de publication photo et vidéo',
+      description: 'Développement d’une application web permettant aux utilisateurs de publier et consulter des contenus multimédias. Le projet comprend la gestion des publications, l’édition des photos et vidéos, les légendes, les commentaires et l’affichage des contenus sur le fil d’actualité et les profils.',
+      points: ['Création, modification et suppression de publications', 'Éditeur photo / vidéo avec recadrage et superpositions', 'Gestion des légendes, dates et commentaires activables ou désactivables', 'Gestion des médias et persistance des données'],
+      tags: ['Node.js', 'JavaScript', 'Express', 'SQLite', 'HTML', 'CSS'],
+      link: 'https://github.com/NathanMouil/Portfolio/tree/main/3%C3%A8me%20ann%C3%A9e',
+      linkLabel: 'Voir SAE502 sur GitHub'
+    }
+  };
+
+  function openProjectModal(projectKey) {
+    const project = projectModalData[projectKey];
+    if (!project) return;
+    document.getElementById('project-modal-kicker').textContent = project.kicker;
+    document.getElementById('project-modal-title').textContent = project.title;
+    document.getElementById('project-modal-content').innerHTML = `
+      <p class="project-modal-description">${project.description}</p>
+      <h3>Travail réalisé</h3>
+      <ul class="project-modal-points">${project.points.map(point => `<li>${point}</li>`).join('')}</ul>
+      <div class="detail-tags">${project.tags.map(tag => `<span class="detail-tag">${tag}</span>`).join('')}</div>`;
+    const actions = document.getElementById('project-modal-actions');
+    actions.innerHTML = '';
+    const link = document.createElement('a');
+    link.className = 'btn btn-primary';
+    link.href = project.link;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = project.linkLabel;
+    actions.appendChild(link);
+    const modal = document.getElementById('project-modal');
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeProjectModal();
+  });
 
   function showYear(n) {
     document.querySelectorAll('.year-tab').forEach((t, i) => t.classList.toggle('active', i === n - 1));
@@ -805,7 +948,7 @@
   }
 
   function showProjets(n) {
-    document.querySelectorAll('.projets-tab').forEach((t, i) => t.classList.toggle('active', i === n - 1));
+    document.querySelectorAll('#projets .projets-tab').forEach((t, i) => t.classList.toggle('active', i === n - 1));
     document.querySelectorAll('#projets .projets-panel').forEach((p, i) => p.classList.toggle('active', i === n - 1));
   }
   
